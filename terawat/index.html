@@ -186,14 +186,14 @@ body .ondisplay section:after {
 <br>
   <section title="อุณหภูมิห้อง 1">
     <div class="dataText" align="center" style="margin-top: 10px;">
-      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue1"  disabled/>
+      <b><input type="text" style="width: 45px;height:50px;color:red;" class="form-control" id="showvalue1" disabled/></b>
       <label for="dataText"></label>
     </div>
   </section>
 
   <section title="อุณหภูมิห้อง 2">
     <div class="dataText" align="center" style="margin-top: 10px;">
-      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue2"  disabled/>
+      <b><input type="text" style="width: 45px;height:50px;color:red;" class="form-control" id="showvalue2" disabled/></b>
       <label for="dataText"></label>
     </div>
   </section>
@@ -201,7 +201,7 @@ body .ondisplay section:after {
 
   <section title="อุณหภูมิห้อง 3">
     <div class="dataText" align="center" style="margin-top: 10px;">
-      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue3" disabled/>
+      <b><input type="text" style="width: 45px;height:50px;color:red;" class="form-control" id="showvalue3" disabled/></b>
       <label for="dataText"></label>
     </div>
   </section>
@@ -213,13 +213,18 @@ body .ondisplay section:after {
 <script>
 /*
 Esqueleto de la BD
-
 var db = firebase.database().ref('home').set({
   led1:true,
   led2:true,
   led3:true
 });
 */
+
+// var db = firebase.database().ref('user').set({
+//   room1:41,
+//   room2:34,
+//   room3:30
+// });
 
 /// read text firebase  ///
 var dbtext = firebase.database().ref('user');
