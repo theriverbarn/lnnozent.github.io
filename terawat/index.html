@@ -9,6 +9,7 @@
 <style media="screen">
 /* .slideThree */
 .slideThree,
+.slideThree1,
 .slideThree2,
 .slideThree3 {
   width: 80px;
@@ -20,6 +21,7 @@
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
 .slideThree:after,
+.slideThree1:after,
 .slideThree2:after,
 .slideThree3:after {
   content: 'OFF';
@@ -32,6 +34,7 @@
 
 }
 .slideThree:before,
+.slideThree1:before,
 .slideThree2:before,
 .slideThree3:before {
   content: 'ON';
@@ -43,6 +46,7 @@
   font-weight: bold;
 }
 .slideThree label,
+.slideThree1 label,
 .slideThree2 label,
 .slideThree3 label {
   display: block;
@@ -62,11 +66,13 @@
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .slideThree input[type=checkbox],
+.slideThree1 input[type=checkbox],
 .slideThree2 input[type=checkbox],
 .slideThree3 input[type=checkbox] {
   visibility: hidden;
 }
 .slideThree input[type=checkbox]:checked + label,
+.slideThree1 input[type=checkbox]:checked + label,
 .slideThree2 input[type=checkbox]:checked + label,
 .slideThree3 input[type=checkbox]:checked + label {
   left: 43px;
@@ -117,7 +123,8 @@ body .ondisplay section:after {
   left: 0;
   bottom: 3px;
   color: #fff;
-  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-shadow: 0px 1px #000;
@@ -142,33 +149,63 @@ body .ondisplay section:after {
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h1>IOT BOY</h1>
-<em>ระบบฟังงาน Arduino</em>
+<h1>IOT</h1>
+<em>ระบบสั่งงาน Arduino</em>
 
 
 <div class="ondisplay">
 
-  <section title="เปิดปิดระบบน้ำ">
+  <section title="เปิดทั้งหมด">
     <div class="slideThree">
-      <input type="checkbox" id="slideThree" name="check1" />
+      <input type="checkbox" id="slideThree" name="check0" />
       <label for="slideThree"></label>
     </div>
   </section>
 
+  <section title="เปิด/ปิด">
+    <div class="slideThree1">
+      <input type="checkbox" id="slideThree1" name="check1" />
+      <label for="slideThree1"></label>
+    </div>
+  </section>
 
-  <section title="เปิดปิดระบบน้ำ">
+
+  <section title="เปิด/ปิด">
     <div class="slideThree2">
       <input type="checkbox" id="slideThree2" name="check2" />
       <label for="slideThree2"></label>
     </div>
   </section>
 
-  <section title="เปิดปิดระบบน้ำ">
+  <section title="เปิด/ปิด">
     <div class="slideThree3">
       <input type="checkbox" id="slideThree3" name="check3" />
       <label for="slideThree3"></label>
     </div>
   </section>
+<br>
+  <section title="อุณหภูมิห้อง 1">
+    <div class="dataText" align="center" style="margin-top: 10px;">
+      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue1"  disabled/>
+      <label for="dataText"></label>
+    </div>
+  </section>
+
+  <section title="อุณหภูมิห้อง 2">
+    <div class="dataText" align="center" style="margin-top: 10px;">
+      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue2"  disabled/>
+      <label for="dataText"></label>
+    </div>
+  </section>
+
+
+  <section title="อุณหภูมิห้อง 3">
+    <div class="dataText" align="center" style="margin-top: 10px;">
+      <input type="text" style="width: 45px;height:50px" class="form-control" id="showvalue3" disabled/>
+      <label for="dataText"></label>
+    </div>
+  </section>
+
 
 </div>
 
@@ -184,43 +221,60 @@ var db = firebase.database().ref('home').set({
 });
 */
 
-var db = firebase.database().ref('home');
-
-/// return firebase  ///
-    db.on('value', function(data){
+/// read text firebase  ///
+var dbtext = firebase.database().ref('user');
+    dbtext.on('value', function(data){
      console.log("data: ", data.val());
-     $("#slideThree").prop('checked', data.val().led1);
-       $("#slideThree2").prop('checked', data.val().led2);
-        $("#slideThree3").prop('checked', data.val().led3);
+      $("#showvalue1").val(data.val().room1);
+        $("#showvalue2").val(data.val().room2);
+          $("#showvalue3").val(data.val().room3);
   });
 
+/// read checkebox firebase  ///
+var db = firebase.database().ref('home');
+    db.on('value', function(data){
+     console.log("data: ", data.val());
+       $("#slideThree").prop('checked', data.val().led0);
+         $("#slideThree1").prop('checked', data.val().led1);
+           $("#slideThree2").prop('checked', data.val().led2);
+             $("#slideThree3").prop('checked', data.val().led3);
+  });
 
-$("#slideThree").click(function(){
-var estado = $(this).is(':checked');
+        $("#slideThree").click(function(){
+        var update = $(this).is(':checked');
 
-db.update({
-  led1:estado
-});
+              db.update({
+                led0:update,
+                led1:update,
+                led2:update,
+                led3:update
+              });
+        });
 
-});
+        $("#slideThree1").click(function(){
+        var update = $(this).is(':checked');
 
-$("#slideThree2").click(function(){
-var estado = $(this).is(':checked');
+              db.update({
+                led1:update
+              });
+        });
 
-db.update({
-  led2:estado
-});
+        $("#slideThree2").click(function(){
+        var estado = $(this).is(':checked');
 
-});
+              db.update({
+                led2:estado
+              });
+        });
 
-$("#slideThree3").click(function(){
-var estado = $(this).is(':checked');
+        $("#slideThree3").click(function(){
+        var estado = $(this).is(':checked');
 
-db.update({
-  led3:estado
-});
+              db.update({
+                led3:estado
+              });
+        });
 
-});
 
 </script>
 
