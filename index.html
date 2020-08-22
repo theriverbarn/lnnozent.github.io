@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>IOT BOY</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<style media="screen">
+/* .slideThree */
+.slideThree,
+.slideThree2,
+.slideThree3 {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideThree:after,
+.slideThree2:after,
+.slideThree3:after {
+  content: 'OFF';
+  color: #AE3427;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+
+}
+.slideThree:before,
+.slideThree2:before,
+.slideThree3:before {
+  content: 'ON';
+  color: #27ae60;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.slideThree label,
+.slideThree2 label,
+.slideThree3 label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcfff4), color-stop(40%, #dfe5d7), to(#b3bead));
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.slideThree input[type=checkbox],
+.slideThree2 input[type=checkbox],
+.slideThree3 input[type=checkbox] {
+  visibility: hidden;
+}
+.slideThree input[type=checkbox]:checked + label,
+.slideThree2 input[type=checkbox]:checked + label,
+.slideThree3 input[type=checkbox]:checked + label {
+  left: 43px;
+}
+
+body {
+  background: #3498db;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+body h1, body h2, body em {
+  color: #eee;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0 0 0;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0px 1px #000;
+}
+body em {
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin-bottom: 50px;
+}
+body .ondisplay {
+  text-align: center;
+  padding: 20px 0;
+}
+body .ondisplay section {
+  width: 100px;
+  height: 100px;
+  background: #555;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin-top: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+body .ondisplay section:after {
+  /*         visibility: hidden; */
+  content: attr(title);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0px 1px #000;
+}
+/* end .slideThree */
+</style>
+
+<script>
+  // Initialize Firebase
+  // Cambiar por sus credenciales
+  var config = {
+    apiKey: "AIzaSyDVAMzBCavz4SZED2xU8lx-qpGgoyacIcM",
+    authDomain: "rasberry-boy.firebaseapp.com",
+    databaseURL: "https://rasberry-boy.firebaseio.com",
+    storageBucket: "rasberry-boy.appspot.com",
+    messagingSenderId: "664102215589"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>IOT BOY</h1>
+<em>ระบบฟังงาน Arduino</em>
+
+
+<div class="ondisplay">
+
+  <section title="เปิดปิดระบบน้ำ">
+    <div class="slideThree">
+      <input type="checkbox" id="slideThree" name="check1" />
+      <label for="slideThree"></label>
+    </div>
+  </section>
+
+
+  <section title="เปิดปิดระบบน้ำ">
+    <div class="slideThree2">
+      <input type="checkbox" id="slideThree2" name="check2" />
+      <label for="slideThree2"></label>
+    </div>
+  </section>
+
+  <section title="เปิดปิดระบบน้ำ">
+    <div class="slideThree3">
+      <input type="checkbox" id="slideThree3" name="check3" />
+      <label for="slideThree3"></label>
+    </div>
+  </section>
+
+</div>
+
+
+<script>
+/*
+Esqueleto de la BD
+
+var db = firebase.database().ref('home').set({
+  led1:true,
+  led2:true,
+  led3:true
+});
+*/
+
+var db = firebase.database().ref('home');
+
+/// return firebase  ///
+    db.on('value', function(data){
+     console.log("data: ", data.val());
+     $("#slideThree").prop('checked', data.val().led1);
+       $("#slideThree2").prop('checked', data.val().led2);
+        $("#slideThree3").prop('checked', data.val().led3);
+  });
+
+
+$("#slideThree").click(function(){
+var estado = $(this).is(':checked');
+
+db.update({
+  led1:estado
+});
+
+});
+
+$("#slideThree2").click(function(){
+var estado = $(this).is(':checked');
+
+db.update({
+  led2:estado
+});
+
+});
+
+$("#slideThree3").click(function(){
+var estado = $(this).is(':checked');
+
+db.update({
+  led3:estado
+});
+
+});
+
+</script>
+
+</body>
+</html>
