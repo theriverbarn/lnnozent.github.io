@@ -209,6 +209,45 @@
                                         </label>
                                     </li>
                                 </ul>
+
+                                <ul class="mdl-list pull-left">
+                                    <li class="mdl-list__item">
+                                        <div id="p9" class="mdl-progress mdl-js-progress progress--colored-red"></div>
+                                        <script>
+                                            document.querySelector('#p9').addEventListener('mdl-componentupgraded', function() {
+                                                this.MaterialProgress.setProgress(33);
+                                                this.MaterialProgress.setBuffer(87);
+                                            });
+                                        </script>
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <div id="p10" class="mdl-progress mdl-js-progress progress--colored-orange"></div>
+                                        <script>
+                                            document.querySelector('#p10').addEventListener('mdl-componentupgraded', function() {
+                                                this.MaterialProgress.setProgress(60);
+                                                this.MaterialProgress.setBuffer(60);
+                                            });
+                                        </script>
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <div id="pp1" class="mdl-progress mdl-js-progress progress--colored-light-blue"></div>
+                                        <script>
+                                            document.querySelector('#pp1').addEventListener('mdl-componentupgraded', function() {
+                                                this.MaterialProgress.setProgress(50);
+                                                this.MaterialProgress.setBuffer(60);
+                                            });
+                                        </script>
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <div id="pp2" class="mdl-progress mdl-js-progress progress--colored-purple"></div>
+                                        <script>
+                                            document.querySelector('#pp2').addEventListener('mdl-componentupgraded', function() {
+                                                this.MaterialProgress.setProgress(13);
+                                                this.MaterialProgress.setBuffer(77);
+                                            });
+                                        </script>
+                                    </li>
+                                </ul>
                         </div>
                     </div>
                 </div>
@@ -227,13 +266,25 @@
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text mdl-card--expand">
-                          <p class="weather-temperature">ระบบไฟ</p>
+                          <p class="weather-temperature">เปิดไฟ</p>
                                 <ul class="mdl-list pull-left">
                                     <li class="mdl-list__item">
                                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect switch--colored-green" for="switch-2">
                                             <input type="checkbox" id="switch-2" class="mdl-switch__input" for="switch-2">
                                             <span class="mdl-switch__label">จุดที่ 2</span>
                                         </label>
+                                    </li>
+                                </ul>
+                                <ul class="mdl-list pull-left">
+
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-red" type="range" min="0" max="100" value="42" tabindex="0">
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-light-blue" type="range" min="0" max="100" value="12" tabindex="0">
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-teal" type="range" min="0" max="100" value="72" tabindex="0">
                                     </li>
                                 </ul>
                         </div>
@@ -261,6 +312,18 @@
                                             <input type="checkbox" id="switch-3" class="mdl-switch__input" for="switch-3">
                                             <span class="mdl-switch__label">จุดที่ 3</span>
                                         </label>
+                                    </li>
+                                </ul>
+                                <ul class="mdl-list pull-left">
+                    
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-orange" type="range" min="0" max="100" value="0" tabindex="0">
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-green" type="range" min="0" max="100" value="0" tabindex="0">
+                                    </li>
+                                    <li class="mdl-list__item">
+                                        <input class="mdl-slider mdl-js-slider slider--colored-purple" type="range" min="0" max="100" value="0" tabindex="0">
                                     </li>
                                 </ul>
                         </div>
