@@ -64,7 +64,6 @@
 html, body {
   height: 100%;
 }
-
 body {
   display: -webkit-box;
   display: flex;
@@ -77,12 +76,11 @@ body {
 .checkbox {
   display: none;
 }
-
 .checkbox + label {
   display: inline-block;
   position: relative;
-  width: 300px;
-  height: 130px;
+  width: 240px;
+  height: 104px;
   background: -webkit-gradient(linear, left top, right top, color-stop(0, #fd1a15), color-stop(45%, #fc8b34), color-stop(55%, #7fd03e), to(#007177)) 0 0;
   background: linear-gradient(to right, #fd1a15 0, #fc8b34 45%, #7fd03e 55%, #007177 100%) 0 0;
   background-size: 650px 100%;
@@ -95,16 +93,17 @@ body {
 }
 .checkbox + label:before {
   content: "Off";
-  width: 116px;
-  height: 116px;
+  width: 93px;
+  height: 93px;
   position: absolute;
   left: 7px;
-  top: 7px;
+  top: 6px;
   border-radius: 100%;
   background: #fff;
   text-align: center;
-  line-height: 116px;
-  font-family: "Cabin", sans-serif;
+  line-height: 93px;
+  font-family: "Comic Sans MS", sans-serif;
+  /* Cabin */
   font-size: 35px;
   font-weight: bold;
   color: #fd1a15;
@@ -126,8 +125,10 @@ body {
 .checkbox:checked + label:before {
   content: "On";
   color: #007177;
-  left: 177px;
+  left: 142px;
 }
+
+
 
 </style>
 
@@ -343,7 +344,7 @@ body {
     </header>
 
     <div class="mdl-layout__drawer">
-        <header>darkboard</header>
+        <header>IOT-BOY</header>
         <div class="scroll__wrapper" id="scroll__wrapper">
             <div class="scroller" id="scroller">
                 <div class="scroll__container" id="scroll__container">
@@ -382,43 +383,8 @@ body {
                                 </a>
                             </div>
                         </div>
-                        <a class="mdl-navigation__link" href="ui-components.html">
-                            <i class="material-icons">developer_board</i>
-                            Components
-                        </a>
-                        <a class="mdl-navigation__link" href="forms.html">
-                            <i class="material-icons" role="presentation">person</i>
-                            Account
-                        </a>
-                        <a class="mdl-navigation__link" href="maps.html">
-                            <i class="material-icons" role="presentation">map</i>
-                            Maps
-                        </a>
-                        <a class="mdl-navigation__link" href="charts.html">
-                            <i class="material-icons">multiline_chart</i>
-                            Charts
-                        </a>
-                        <div class="sub-navigation">
-                            <a class="mdl-navigation__link">
-                                <i class="material-icons">pages</i>
-                                Pages
-                                <i class="material-icons">keyboard_arrow_down</i>
-                            </a>
-                            <div class="mdl-navigation">
-                                <a class="mdl-navigation__link" href="login.html">
-                                    Sign in
-                                </a>
-                                <a class="mdl-navigation__link" href="sign-up.html">
-                                    Sign up
-                                </a>
-                                <a class="mdl-navigation__link" href="forgot-password.html">
-                                    Forgot password
-                                </a>
-                                <a class="mdl-navigation__link" href="404.html">
-                                    404
-                                </a>
-                            </div>
-                        </div>
+
+                        <
                         <div class="mdl-layout-spacer"></div>
                         <hr>
                         <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
@@ -437,20 +403,52 @@ body {
         <div class="mdl-grid mdl-grid--no-spacing dashboard">
             <div class="mdl-grid mdl-cell mdl-cell--9-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top">
 
+
+              <!-- radio 1-->
+              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                  <div class="mdl-card mdl-shadow--2dp weather">
+                      <div class="mdl-card__title">
+                          <div class="mdl-layout-spacer text-color--gray">เลือกอุณหภูมิ</div>
+                            <div class="mdl-card__subtitle-text">
+                              <i class="material-icons">room</i>Minsk, Belarus</div>
+                          </div>
+                          <div class="mdl-card__supporting-text mdl-card--expand">
+                              <ul class="mdl-list pull-left">
+                                  <li class="mdl-list__item">
+                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-green" for="option1">
+                                          <input type="radio" id="option1" class="mdl-radio__button" name="options" value="1">
+                                          <span class="mdl-radio__label">Apple <p id="demo"></p></span>
+                                      </label>
+                                  </li>
+                                  <li class="mdl-list__item">
+                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-orange" for="option2">
+                                          <input type="radio" id="option2" class="mdl-radio__button" name="options" value="2" >
+                                          <span class="mdl-radio__label">Orange</span>
+                                      </label>
+                                  </li>
+                                  <li class="mdl-list__item">
+                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-purple" for="option3">
+                                          <input type="radio" id="option3" class="mdl-radio__button" name="options" value="3">
+                                          <span class="mdl-radio__label">Grapes</span>
+                                      </label>
+                                  </li>
+                              </ul>
+                        </div>
+                  </div>
+              </div>
+
                 <!-- Weather widget 1-->
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
                     <div class="mdl-card mdl-shadow--2dp weather">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">พัดลมตัวที่ 1</h2>
-
-                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer text-color--gray">พัดลมตัวที่ 1</div>
                               <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>Minsk, Belarus</div>
                             </div>
                             <div class="mdl-card__supporting-text mdl-card--expand">
                                 <input class="checkbox" id="slideThree1" type="checkbox"/>
                                 <label for="slideThree1"></label>
-                                <p class="weather-description">Cloudy and snow</p>
+                                <p class="weather-description text-color--gray">อุณหภูมิพัดลม</p>
                           </div>
                     </div>
                 </div>
@@ -459,9 +457,7 @@ body {
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
                     <div class="mdl-card mdl-shadow--2dp weather">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">พัดลมตัวที่ 2</h2>
-
-                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer text-color--gray">พัดลมตัวที่ 2</div>
                               <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>Minsk, Belarus</div>
                             </div>
@@ -477,9 +473,7 @@ body {
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
                     <div class="mdl-card mdl-shadow--2dp weather">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">พัดลมตัวที่ 3</h2>
-
-                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer">พัดลมตัวที่ 3</div>
                               <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>Minsk, Belarus</div>
                             </div>
@@ -495,9 +489,7 @@ body {
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
                     <div class="mdl-card mdl-shadow--2dp weather">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">พัดลมตัวที่ 4</h2>
-
-                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer">พัดลมตัวที่ 4</div>
                               <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>Minsk, Belarus</div>
                             </div>
@@ -513,9 +505,7 @@ body {
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
                     <div class="mdl-card mdl-shadow--2dp weather">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">พัดลมตัวที่ 5</h2>
-
-                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer">พัดลมตัวที่ 5</div>
                               <div class="mdl-card__subtitle-text">
                                 <i class="material-icons">room</i>Minsk, Belarus</div>
                             </div>
@@ -523,6 +513,23 @@ body {
                                 <input class="checkbox" id="slideThree5" type="checkbox"/>
                                 <label for="slideThree5"></label>
                                 <p class="weather-description">Cloudy and snow</p>
+                          </div>
+                    </div>
+                </div>
+
+
+                <!-- OC 1-->
+                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                    <div class="mdl-card mdl-shadow--2dp weather">
+                        <div class="mdl-card__title">
+                            <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
+                              <div class="mdl-card__subtitle-text">
+                                <i class="material-icons">room</i>Minsk, Belarus</div>
+                            </div>
+                            <div class="mdl-card__supporting-text mdl-card--expand" >
+                              <div style="padding: 1px;width:70%;margin:auto;">
+                                <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="showvalue1" disabled/>
+                              </div>
                           </div>
                     </div>
                 </div>
@@ -649,6 +656,7 @@ var db = firebase.database().ref('home');
                   $("#slideThree5").prop('checked', data.val().led5);
   });
 
+
         $("#slideThree").click(function(){
         var update = $(this).is(':checked');
 
@@ -657,6 +665,44 @@ var db = firebase.database().ref('home');
                 led1:update,
                 led2:update,
                 led3:update
+              });
+        });
+
+
+    var dbRefTemIN = firebase.database().ref('RefTemIN');
+        db.on('value', function(data){
+         console.log("data: ", data.val());
+          var testt = data.val();
+          // if (res==35) {
+          //   document.getElementById("demo").innerHTML = "5555";
+          // }else {
+          //   document.getElementById("demo").innerHTML = "4444";
+          // }
+
+
+           $("#option1").prop('checked', data.val('25').RefTemp);
+            $("#option2").prop('checked', data.val('30').RefTemp);
+              $("#option3").prop('checked', data.val('35').RefTemp);
+      });
+
+        $("#option1").click(function(){
+        var update = "25";
+              dbRefTemIN.update({
+                RefTemp:update
+              });
+        });
+
+        $("#option2").click(function(){
+        var update = "30";
+              dbRefTemIN.update({
+                RefTemp:update
+              });
+        });
+
+        $("#option3").click(function(){
+        var update = "35";
+              dbRefTemIN.update({
+                RefTemp:update
               });
         });
 
