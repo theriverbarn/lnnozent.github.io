@@ -130,6 +130,140 @@ body {
 
 
 
+
+
+
+
+/* /// NEW BOy */
+.transition, input[type=radio]:after, input[type=checkbox][type=radio]:after, input[type=checkbox]:after {
+  -moz-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  -o-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  -webkit-transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+  transition: all 0.25s cubic-bezier(0.75, 0.01, 0.48, 2);
+}
+
+.bgTransition, input[type=radio]:before, input[type=checkbox][type=radio]:before, input[type=checkbox]:before {
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+input[type=radio], input[type=checkbox] {
+  position: relative;
+}
+input[type=radio]:before, input[type=radio]:after, input[type=checkbox]:before, input[type=checkbox]:after {
+  content: "";
+  position: absolute;
+}
+input[type=radio]:before, input[type=checkbox]:before {
+  height: 100%;
+}
+input[type=radio][type=radio], input[type=checkbox][type=radio] {
+  border-radius: 30px;
+}
+input[type=radio][type=radio]:before, input[type=checkbox][type=radio]:before {
+  width: 100%;
+  border-radius: 30px;
+  background-color: #2c3f52;
+  box-shadow: 0 0 0 1px #2c3f52;
+}
+input[type=radio][type=radio]:after, input[type=checkbox][type=radio]:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #15202a;
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+}
+input[type=radio][type=radio]:checked:after, input[type=checkbox][type=radio]:checked:after {
+  -moz-transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75);
+  -webkit-transform: scale(0.75, 0.75);
+  transform: scale(0.75, 0.75);
+}
+input[type=radio][type=radio]:checked:before, input[type=checkbox][type=radio]:checked:before {
+  background-color: #85ff7a;
+  box-shadow: 0 0 0 1px #85ff7a;
+}
+input[type=radio][type=checkbox]:before, input[type=checkbox][type=checkbox]:before {
+  width: 200%;
+  background-color: #2c3f52;
+  box-shadow: 0 0 0 1px #2c3f52;
+  -moz-transform: translate(-25%, 0);
+  -ms-transform: translate(-25%, 0);
+  -webkit-transform: translate(-25%, 0);
+  transform: translate(-25%, 0);
+  border-radius: 30px;
+}
+input[type=radio][type=checkbox]:after, input[type=checkbox][type=checkbox]:after {
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-left: 10%;
+  background-color: #15202a;
+  border-radius: 30px;
+  -moz-transform: translate(60%, 0);
+  -ms-transform: translate(60%, 0);
+  -webkit-transform: translate(60%, 0);
+  transform: translate(60%, 0);
+}
+input[type=radio][type=checkbox]:checked:after, input[type=checkbox][type=checkbox]:checked:after {
+  -moz-transform: translate(-60%, 0);
+  -ms-transform: translate(-60%, 0);
+  -webkit-transform: translate(-60%, 0);
+  transform: translate(-60%, 0);
+}
+input[type=radio][type=checkbox]:checked:before, input[type=checkbox][type=checkbox]:checked:before {
+  background-color: #85ff7a;
+  box-shadow: 0 0 0 1px #85ff7a;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  background-color: #15202a;
+}
+
+input {
+  display: block;
+  margin: 36px;
+}
+input[type=radio], input[type=checkbox] {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.radio, .check {
+  position: absolute;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.radio {
+  margin-left: -36px;
+}
+
+.check {
+  margin-left: 36px;
+}
+
+
 </style>
 
 <body>
@@ -415,27 +549,91 @@ body {
                           <div class="mdl-card__supporting-text mdl-card--expand">
                               <ul class="mdl-list pull-left">
                                   <li class="mdl-list__item">
-                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-green" for="option1">
-                                          <input type="radio" id="option1" class="mdl-radio__button" name="options" value="1">
-                                          <span class="mdl-radio__label">Apple <p id="demo"></p></span>
+                                      <label for="option1">
+                                          <input name="radio" type="radio" id="option1" class="css_data_item"  value="1" />
+                                      </label>
+                                      <label for="option1" style="margin-left: 150px;">
+                                            <span class="mdl-radio__label" style="font-size:35px">25</span>
                                       </label>
                                   </li>
                                   <li class="mdl-list__item">
-                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-orange" for="option2">
-                                          <input type="radio" id="option2" class="mdl-radio__button" name="options" value="2" >
-                                          <span class="mdl-radio__label">Orange</span>
+                                      <label for="option2">
+                                          <input name="radio" type="radio" class="css_data_item" id="option2" value="1" />
                                       </label>
+                                    </label>
+                                    <label for="option1" style="margin-left: 150px;">
+                                          <span class="mdl-radio__label" style="font-size:35px">30</span>
+                                    </label>
                                   </li>
                                   <li class="mdl-list__item">
-                                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect radio--colored-purple" for="option3">
-                                          <input type="radio" id="option3" class="mdl-radio__button" name="options" value="3">
-                                          <span class="mdl-radio__label">Grapes</span>
+                                      <label for="option3">
+                                            <input name="radio" type="radio" class="css_data_item" id="option3" value="1" />
+                                      </label>
+                                      <label for="option1" style="margin-left: 150px;">
+                                            <span class="mdl-radio__label" style="font-size:35px">35</span>
                                       </label>
                                   </li>
                               </ul>
                         </div>
                   </div>
               </div>
+
+
+
+              <!-- OC 1-->
+              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                  <div class="mdl-card mdl-shadow--2dp weather">
+                      <div class="mdl-card__title">
+                          <div class="mdl-layout-spacer"><font size="3" id="textinputshow"></font></div>
+                            <div class="mdl-card__subtitle-text">
+                              <i class="material-icons">room</i>Minsk, Belarus</div>
+                          </div>
+                          <div class="mdl-card__supporting-text mdl-card--expand" >
+                            <div style="padding: 1px;width:70%;margin:auto;">
+
+                              <input class="form-control" id="textinput" type="text" maxlength="255"  >
+                            </div>
+                            <div class="modal-footer" >
+                                <input class="btn btn-success" type="button" value="ตกลง" onclick="adddamage()">
+                            </div>
+                        </div>
+                  </div>
+              </div>
+
+
+              <!-- OC 1-->
+              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                  <div class="mdl-card mdl-shadow--2dp weather">
+                      <div class="mdl-card__title">
+                          <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
+                            <div class="mdl-card__subtitle-text">
+                              <i class="material-icons">room</i>Minsk, Belarus</div>
+                          </div>
+                          <div class="mdl-card__supporting-text mdl-card--expand" >
+                            <div style="padding: 1px;width:70%;margin:auto;">
+                              <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="runRefTemp" disabled/>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+
+
+              <!-- OC 2-->
+              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+                  <div class="mdl-card mdl-shadow--2dp weather">
+                      <div class="mdl-card__title">
+                          <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
+                            <div class="mdl-card__subtitle-text">
+                              <i class="material-icons">room</i>Minsk, Belarus</div>
+                          </div>
+                          <div class="mdl-card__supporting-text mdl-card--expand" >
+                            <div style="padding: 1px;width:70%;margin:auto;">
+                              <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="showvalue2" disabled/>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+
 
                 <!-- Weather widget 1-->
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
@@ -518,59 +716,6 @@ body {
                 </div>
 
 
-                <!-- OC 1-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand" >
-                              <div style="padding: 1px;width:70%;margin:auto;">
-                                <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="showvalue1" disabled/>
-                              </div>
-                          </div>
-                    </div>
-                </div>
-
-                <!-- Weather widget 5-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-
-                        <table align="center" width="80%">
-                          <tr>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 1</th>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 2</th>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 3</th>
-                          </tr>
-                          <tr>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:green;text-align:center;font-size:50px" class="form-control" id="showvalue1" disabled/></b></td>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:red;text-align:center;font-size:50px" class="form-control" id="showvalue2" disabled/></b></td>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:black;text-align:center;font-size:50px" class="form-control" id="showvalue3" disabled/></b></td>
-                          </tr>
-                          <tr>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 4</th>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 5</th>
-                            <th style="color:white;text-align:center">อุณหภูมิห้อง 6</th>
-                          </tr>
-                          <tr>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:red;text-align:center;font-size:50px" class="form-control" id="showvalue4" disabled/></b></td>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:black;text-align:center;font-size:50px" class="form-control" id="showvalue5" disabled/></b></td>
-                            <td><b><input type="text" style="width: 150px;height:150px;color:red;text-align:center;font-size:50px" class="form-control" id="showvalue6" disabled/></b></td>
-                          </tr>
-                        </table>
-
-                              <!-- <div class="dataText" align="center" style="margin-top: 100px;">
-                                <b><input type="text" style="width: 100px;height:100px;color:red;" class="form-control" id="showvalue1" disabled/></b>
-                              </div>
-                              <div class="dataText" align="center" style="margin-top: 10px;">
-                                <b><input type="text" style="width: 100px;height:100px;color:red;" class="form-control" id="showvalue1" disabled/></b>
-                              </div> -->
-
-
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -620,17 +765,61 @@ var db = firebase.database().ref('home').set({
 //   room3:30
 // });
 
+
+
+/// กำหนดอุณุภูมิ และ แสดงผลุณุภูมิ 25 30 35 ///
+
+  //กำหนดอุณุภูมิ 25
+  $("#option1").click(function(){
+  var update = "25";
+        dbRefTemIN.update({
+          RefTemp:update
+        });
+  });
+  //กำหนดอุณุภูมิ 30
+  $("#option2").click(function(){
+  var update = "30";
+        dbRefTemIN.update({
+          RefTemp:update
+        });
+  });
+  //กำหนดอุณุภูมิ 35
+  $("#option3").click(function(){
+  var update = "35";
+        dbRefTemIN.update({
+          RefTemp:update
+        });
+  });
+  //ดึงข้อมูลจาก firebase
+  var dbRefTemIN = firebase.database().ref('RefTemIN');
+      dbRefTemIN.on('value', function(data){
+       console.log("data: ", data.val());
+
+        // แสดงผลุณุภูมิ 25 30 35
+        $("#runRefTemp").val(data.val().RefTemp);
+        // check radio reture value
+        if (data.val().RefTemp == '25') $("#option1").prop('checked', true); else $("#option1").prop('checked', false);
+        if (data.val().RefTemp == '30') $("#option2").prop('checked', true); else $("#option2").prop('checked', false);
+        if (data.val().RefTemp == '35') $("#option3").prop('checked', true); else $("#option3").prop('checked', false);
+    });
+
+
+
+
+
 /// read text firebase  ///
 var dbtext = firebase.database().ref('user');
     dbtext.on('value', function(data){
      console.log("data: ", data.val());
-      $("#showvalue1").val(data.val().room1);
+
         $("#showvalue2").val(data.val().room2);
           $("#showvalue3").val(data.val().room3);
             $("#showvalue4").val(data.val().room4);
               $("#showvalue5").val(data.val().room5);
                 $("#showvalue6").val(data.val().room6);
   });
+
+
 
 
  //  function toggleApiOn() {
@@ -648,99 +837,92 @@ var dbtext = firebase.database().ref('user');
 var db = firebase.database().ref('home');
     db.on('value', function(data){
      console.log("data: ", data.val());
-       $("#slideThree").prop('checked', data.val().led0);
+       // $("#slideThree").prop('checked', data.val().led0);
          $("#slideThree1").prop('checked', data.val().led1);
            $("#slideThree2").prop('checked', data.val().led2);
              $("#slideThree3").prop('checked', data.val().led3);
                 $("#slideThree4").prop('checked', data.val().led4);
                   $("#slideThree5").prop('checked', data.val().led5);
+                    $("#textinputshow").val(data.val().led0);
+
+                    // document.getElementById("textinputshow").value = data.val().led0;
+
+                    document.getElementById("textinputshow").innerHTML = data.val().led0;
+                
+                    $("#textinput").val(data.val().led0);
+
+
+
+      // if (data.val().led1 == '1') $("#slideThree1").prop('checked', true); else $("#slideThree1").prop('checked', false);
   });
 
-
-        $("#slideThree").click(function(){
-        var update = $(this).is(':checked');
-
-              db.update({
-                led0:update,
-                led1:update,
-                led2:update,
-                led3:update
-              });
-        });
+  function adddamage() {
+alert($("#textinput").val());
+var updatetext = $("#textinput").val();
+    db.update({
+      led0:updatetext
+    });
+  }
 
 
-    var dbRefTemIN = firebase.database().ref('RefTemIN');
-        db.on('value', function(data){
-         console.log("data: ", data.val());
-          var testt = data.val();
-          // if (res==35) {
-          //   document.getElementById("demo").innerHTML = "5555";
-          // }else {
-          //   document.getElementById("demo").innerHTML = "4444";
-          // }
+        // $("#slideThree").click(function(){
+        // var update = $(this).is(':checked');
+        //
+        //       db.update({
+        //         led0:update,
+        //         led1:update,
+        //         led2:update,
+        //         led3:update
+        //       });
+        // });
 
 
-           $("#option1").prop('checked', data.val('25').RefTemp);
-            $("#option2").prop('checked', data.val('30').RefTemp);
-              $("#option3").prop('checked', data.val('35').RefTemp);
-      });
+        // $('#slideThree1').on('change', function(){
+        //    this.value = this.checked ? 1 : 0;
+        //    alert(this.value);
+        // }).change();
 
-        $("#option1").click(function(){
-        var update = "25";
-              dbRefTemIN.update({
-                RefTemp:update
-              });
-        });
 
-        $("#option2").click(function(){
-        var update = "30";
-              dbRefTemIN.update({
-                RefTemp:update
-              });
-        });
-
-        $("#option3").click(function(){
-        var update = "35";
-              dbRefTemIN.update({
-                RefTemp:update
-              });
-        });
+        // $("#slideThree3").click(function(){
+        // var estado = $(this).is(':checked');
+        //
+        //       db.update({
+        //         led3:estado
+        //       });
+        // });
 
         $("#slideThree1").click(function(){
-        var update = $(this).is(':checked');
-
+        var estado = this.checked ? 1 : 0;
               db.update({
-                led1:update
+                led1:estado
               });
         });
 
-        $("#slideThree2").click(function(){
-        var estado = $(this).is(':checked');
 
+
+        $("#slideThree2").click(function(){
+        var estado = this.checked ? 1 : 0;
               db.update({
                 led2:estado
               });
         });
 
         $("#slideThree3").click(function(){
-        var estado = $(this).is(':checked');
-
+        var estado = this.checked ? 1 : 0;
               db.update({
                 led3:estado
               });
         });
 
         $("#slideThree4").click(function(){
-        var estado = $(this).is(':checked');
-
+        var estado = this.checked ? 1 : 0;
               db.update({
                 led4:estado
               });
         });
 
         $("#slideThree5").click(function(){
-        var estado = $(this).is(':checked');
-
+        var estado = this.checked ? 1 : 0;
               db.update({
                 led5:estado
               });
