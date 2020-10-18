@@ -1,137 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <title>New BOy</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
 
-    <title>IOT BOY</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- /* firebase*/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  </head>
 
+  <script>
+    // Initialize Firebase
+    // Cambiar por sus credenciales
+    var config = {
+      apiKey: "AIzaSyDVAMzBCavz4SZED2xU8lx-qpGgoyacIcM",
+      authDomain: "rasberry-boy.firebaseapp.com",
+      databaseURL: "https://rasberry-boy.firebaseio.com",
+      storageBucket: "rasberry-boy.appspot.com",
+      messagingSenderId: "664102215589"
+    };
+    firebase.initializeApp(config);
+  </script>
 
-    <link rel="icon" type="image/png" href="images/DB_16х16.png">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Material Dashboard Lite</title>
+  <style >
+  /* Copyright 2018 Google LLC.
+SPDX-License-Identifier: Apache-2.0 */
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
+/* CSS files add styling rules to your content */
 
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
-          type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- inject:css -->
-    <link rel="stylesheet" href="css/lib/getmdl-select.min.css">
-    <link rel="stylesheet" href="css/lib/nv.d3.min.css">
-    <link rel="stylesheet" href="css/application.min.css">
-    <!-- endinject -->
-
-</head>
-
-<script>
-  // Initialize Firebase
-  // Cambiar por sus credenciales
-  var config = {
-    apiKey: "AIzaSyDVAMzBCavz4SZED2xU8lx-qpGgoyacIcM",
-    authDomain: "rasberry-boy.firebaseapp.com",
-    databaseURL: "https://rasberry-boy.firebaseio.com",
-    storageBucket: "rasberry-boy.appspot.com",
-    messagingSenderId: "664102215589"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<!--BOY bootstrap-switch-button slow -->
-<style>
-
-html, body {
-  height: 100%;
-}
 body {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+/* font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif; */
+font-family: 'Kanit', sans-serif;
+margin: 0;
+padding: 1em;
 }
 
-.checkbox {
-  display: none;
-}
-.checkbox + label {
-  display: inline-block;
-  position: relative;
-  width: 240px;
-  height: 104px;
-  background: -webkit-gradient(linear, left top, right top, color-stop(0, #fd1a15), color-stop(45%, #fc8b34), color-stop(55%, #7fd03e), to(#007177)) 0 0;
-  background: linear-gradient(to right, #fd1a15 0, #fc8b34 45%, #7fd03e 55%, #007177 100%) 0 0;
-  background-size: 650px 100%;
-  border-radius: 70px;
-  padding: 7px;
-  cursor: pointer;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2) inset;
-}
-.checkbox + label:before {
-  content: "Off";
-  width: 93px;
-  height: 93px;
-  position: absolute;
-  left: 7px;
-  top: 6px;
-  border-radius: 100%;
-  background: #fff;
-  text-align: center;
-  line-height: 93px;
-  font-family: "Comic Sans MS", sans-serif;
-  /* Cabin */
-  font-size: 35px;
-  font-weight: bold;
-  color: #fd1a15;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  -webkit-transition: left 500ms ease, color 500ms ease, -webkit-transform 150ms ease;
-  transition: left 500ms ease, color 500ms ease, -webkit-transform 150ms ease;
-  transition: left 500ms ease, color 500ms ease, transform 150ms ease;
-  transition: left 500ms ease, color 500ms ease, transform 150ms ease, -webkit-transform 150ms ease;
-}
-.checkbox + label:active:before {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+* {
+box-sizing: border-box;
 }
 
-.checkbox:checked + label {
-  background-position-x: -350px;
+article {
+max-width: 940px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 20px;
 }
-.checkbox:checked + label:before {
-  content: "On";
-  color: #007177;
-  left: 142px;
+
+article > * {
+color: #ccc;
+background-color: rgba(0, 0, 0, 0.9);
+border-radius: 8px;
+padding: 15px;
+background-color: #555;
 }
-
-
-
-
-
 
 
 /* /// NEW BOy */
@@ -189,22 +116,23 @@ input[type=radio][type=radio]:checked:before, input[type=checkbox][type=radio]:c
   box-shadow: 0 0 0 1px #85ff7a;
 }
 input[type=radio][type=checkbox]:before, input[type=checkbox][type=checkbox]:before {
-  width: 200%;
+  height: 300%;  /* silde size */
+  width: 600%;  /* silde size */
   background-color: #2c3f52;
   box-shadow: 0 0 0 1px #2c3f52;
   -moz-transform: translate(-25%, 0);
   -ms-transform: translate(-25%, 0);
   -webkit-transform: translate(-25%, 0);
   transform: translate(-25%, 0);
-  border-radius: 30px;
+  border-radius: 60px; /* silde size */
 }
 input[type=radio][type=checkbox]:after, input[type=checkbox][type=checkbox]:after {
-  width: 80%;
-  height: 80%;
-  margin-top: 10%;
-  margin-left: 10%;
+  width: 240%;      /* silde size */
+  height: 240%;     /* silde size */
+  margin-top: 30%;  /* silde size */
+  margin-left: 30%; /* silde size */
   background-color: #15202a;
-  border-radius: 30px;
+  border-radius: 60px; /* silde size */
   -moz-transform: translate(60%, 0);
   -ms-transform: translate(60%, 0);
   -webkit-transform: translate(60%, 0);
@@ -221,24 +149,22 @@ input[type=radio][type=checkbox]:checked:before, input[type=checkbox][type=check
   box-shadow: 0 0 0 1px #85ff7a;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 html {
   background-color: #15202a;
 }
 
-input {
+/* input {
+  display: block;
+  margin: 36px;
+} */
+input[type=checkbox] {
   display: block;
   margin: 36px;
 }
+
+
+
 input[type=radio], input[type=checkbox] {
   cursor: pointer;
   width: 30px;
@@ -263,673 +189,249 @@ input[type=radio], input[type=checkbox] {
   margin-left: 36px;
 }
 
-
-</style>
-
-<body>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header is-small-screen">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer"></div>
-            <!-- Search-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                    <i class="material-icons">search</i>
-                </label>
-
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="search"/>
-                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
-                </div>
-            </div>
-
-            <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon notification" id="notification"
-                 data-badge="23">
-                notifications_none
-            </div>
-            <!-- Notifications dropdown-->
-            <ul class="mdl-menu mdl-list mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right mdl-shadow--2dp notifications-dropdown"
-                for="notification">
-                <li class="mdl-list__item">
-                    You have 23 new notifications!
-                </li>
-                <li class="mdl-menu__item mdl-list__item list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--primary">
-                            <i class="material-icons">plus_one</i>
-                        </span>
-                        <span>You have 3 new orders.</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label">just now</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--secondary">
-                            <i class="material-icons">error_outline</i>
-                        </span>
-                      <span>Database error</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label">1 min</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--primary">
-                            <i class="material-icons">new_releases</i>
-                        </span>
-                      <span>The Death Star is built!</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label">2 hours</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--primary">
-                            <i class="material-icons">mail_outline</i>
-                        </span>
-                      <span>You have 4 new mails.</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label">5 days</span>
-                    </span>
-                </li>
-                <li class="mdl-list__item list__item--border-top">
-                    <button href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">ALL NOTIFICATIONS</button>
-                </li>
-            </ul>
-
-            <div class="material-icons mdl-badge mdl-badge--overlap mdl-button--icon message" id="inbox" data-badge="4">
-                mail_outline
-            </div>
-            <!-- Messages dropdown-->
-            <ul class="mdl-menu mdl-list mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right mdl-shadow--2dp messages-dropdown"
-                for="inbox">
-                <li class="mdl-list__item">
-                    You have 4 new messages!
-                </li>
-                <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--primary">
-                            <text>A</text>
-                        </span>
-                        <span>Alice</span>
-                        <span class="mdl-list__item-sub-title">Birthday Party</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">just now</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--baby-blue">
-                            <text>M</text>
-                        </span>
-                        <span>Mike</span>
-                        <span class="mdl-list__item-sub-title">No theme</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">5 min</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--cerulean">
-                            <text>D</text>
-                        </span>
-                        <span>Darth</span>
-                        <span class="mdl-list__item-sub-title">Suggestion</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">23 hours</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item mdl-list__item--two-line list__item--border-top">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="mdl-list__item-avatar background-color--mint">
-                            <text>D</text>
-                        </span>
-                        <span>Don McDuket</span>
-                        <span class="mdl-list__item-sub-title">NEWS</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label label--transparent">30 Nov</span>
-                    </span>
-                </li>
-                <li class="mdl-list__item list__item--border-top">
-                    <button href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">SHOW ALL MESSAGES</button>
-                </li>
-            </ul>
-
-            <div class="avatar-dropdown" id="icon">
-                <span>Luke</span>
-                <img src="images/Icon_header.png">
-            </div>
-            <!-- Account dropdawn-->
-            <ul class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
-                for="icon">
-                <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                        <span class="material-icons mdl-list__item-avatar"></span>
-                        <span>Luke</span>
-                        <span class="mdl-list__item-sub-title">Luke@skywalker.com</span>
-                    </span>
-                </li>
-                <li class="list__item--border-top"></li>
-                <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">account_circle</i>
-                        My account
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">check_box</i>
-                        My tasks
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                      <span class="label background-color--primary">3 new</span>
-                    </span>
-                </li>
-                <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">perm_contact_calendar</i>
-                        My events
-                    </span>
-                </li>
-                <li class="list__item--border-top"></li>
-                <li class="mdl-menu__item mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">settings</i>
-                        Settings
-                    </span>
-                </li>
-                <a href="login.html">
-                    <li class="mdl-menu__item mdl-list__item">
-                        <span class="mdl-list__item-primary-content">
-                            <i class="material-icons mdl-list__item-icon text-color--secondary">exit_to_app</i>
-                            Log out
-                        </span>
-                    </li>
-                </a>
-            </ul>
-
-            <button id="more"
-                    class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">more_vert</i>
-            </button>
-
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp settings-dropdown"
-                for="more">
-                <li class="mdl-menu__item">
-                    Settings
-                </li>
-                <a class="mdl-menu__item" href="https://github.com/CreativeIT/getmdl-dashboard/issues">
-                    Support
-                </a>
-                <li class="mdl-menu__item">
-                    F.A.Q.
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    <div class="mdl-layout__drawer">
-        <header>IOT-BOY</header>
-        <div class="scroll__wrapper" id="scroll__wrapper">
-            <div class="scroller" id="scroller">
-                <div class="scroll__container" id="scroll__container">
-                    <nav class="mdl-navigation">
-                        <a class="mdl-navigation__link mdl-navigation__link--current" href="index.html">
-                            <i class="material-icons" role="presentation">dashboard</i>
-                            Dashboard
-                        </a>
-                        <div class="sub-navigation">
-                            <a class="mdl-navigation__link">
-                                <i class="material-icons">view_comfy</i>
-                                UI
-                                <i class="material-icons">keyboard_arrow_down</i>
-                            </a>
-                            <div class="mdl-navigation">
-                                <a class="mdl-navigation__link" href="ui-buttons.html">
-                                    Buttons
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-cards.html">
-                                    Cards
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-colors.html">
-                                    Colors
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-form-components.html">
-                                    Forms
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-icons.html">
-                                    Icons
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-typography.html">
-                                    Typography
-                                </a>
-                                <a class="mdl-navigation__link" href="ui-tables.html">
-                                    Tables
-                                </a>
-                            </div>
-                        </div>
-
-                        <
-                        <div class="mdl-layout-spacer"></div>
-                        <hr>
-                        <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">
-                            <i class="material-icons" role="presentation">link</i>
-                            GitHub
-                        </a>
-                    </nav>
-                </div>
-            </div>
-            <div class='scroller__bar' id="scroller__bar"></div>
-        </div>
-    </div>
-
-    <main class="mdl-layout__content">
-
-        <div class="mdl-grid mdl-grid--no-spacing dashboard">
-            <div class="mdl-grid mdl-cell mdl-cell--9-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top">
+.center {
+  margin: auto;
+  width: auto;
+  height: auto;
+  /* border: 3px solid #ccc; */
+  padding: 20px 0;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  text-align: right;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  border-bottom-left-radius: 40px;
+  background: #009688;
+}
+.content {
+    background: #008688;
+    color: rgba(255,255,255,.84);
+}
 
 
-              <!-- radio 1-->
-              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                  <div class="mdl-card mdl-shadow--2dp weather">
-                      <div class="mdl-card__title">
-                          <div class="mdl-layout-spacer text-color--gray">เลือกอุณหภูมิ</div>
-                            <div class="mdl-card__subtitle-text">
-                              <i class="material-icons">room</i>Minsk, Belarus</div>
-                          </div>
-                          <div class="mdl-card__supporting-text mdl-card--expand">
-                              <ul class="mdl-list pull-left">
-                                  <li class="mdl-list__item">
-                                      <label for="option1">
-                                          <input name="radio" type="radio" id="option1" class="css_data_item"  value="1" />
-                                      </label>
-                                      <label for="option1" style="margin-left: 150px;">
-                                            <span class="mdl-radio__label" style="font-size:35px">25</span>
-                                      </label>
-                                  </li>
-                                  <li class="mdl-list__item">
-                                      <label for="option2">
-                                          <input name="radio" type="radio" class="css_data_item" id="option2" value="1" />
-                                      </label>
-                                    </label>
-                                    <label for="option1" style="margin-left: 150px;">
-                                          <span class="mdl-radio__label" style="font-size:35px">30</span>
-                                    </label>
-                                  </li>
-                                  <li class="mdl-list__item">
-                                      <label for="option3">
-                                            <input name="radio" type="radio" class="css_data_item" id="option3" value="1" />
-                                      </label>
-                                      <label for="option1" style="margin-left: 150px;">
-                                            <span class="mdl-radio__label" style="font-size:35px">35</span>
-                                      </label>
-                                  </li>
-                              </ul>
-                        </div>
+
+  </style>
+  <body>
+
+    <article role="main">
+
+      <!-- <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+          <div class="mdl-card mdl-shadow--2dp weather">
+              <div class="mdl-card__title">
+                  <div class="mdl-layout-spacer text-color--gray">เลือกอุณหภูมิ</div>
+                    <div class="mdl-card__subtitle-text">s<i class="material-icons">room</i>Minsk, Belarus</div>
                   </div>
-              </div>
+                  <div class="mdl-card__supporting-text mdl-card--expand">
 
-
-
-              <!-- OC 1-->
-              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                  <div class="mdl-card mdl-shadow--2dp weather">
-                      <div class="mdl-card__title">
-                          <div class="mdl-layout-spacer"><font size="3" id="textinputshow"></font></div>
-                            <div class="mdl-card__subtitle-text">
-                              <i class="material-icons">room</i>Minsk, Belarus</div>
-                          </div>
-                          <div class="mdl-card__supporting-text mdl-card--expand" >
-                            <div style="padding: 1px;width:70%;margin:auto;">
-
-                              <input class="form-control" id="textinput" type="text" maxlength="255"  >
-                            </div>
-                            <div class="modal-footer" >
-                                <input class="btn btn-success" type="button" value="ตกลง" onclick="adddamage()">
-                            </div>
-                        </div>
-                  </div>
-              </div>
-
-
-              <!-- OC 1-->
-              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                  <div class="mdl-card mdl-shadow--2dp weather">
-                      <div class="mdl-card__title">
-                          <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
-                            <div class="mdl-card__subtitle-text">
-                              <i class="material-icons">room</i>Minsk, Belarus</div>
-                          </div>
-                          <div class="mdl-card__supporting-text mdl-card--expand" >
-                            <div style="padding: 1px;width:70%;margin:auto;">
-                              <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="runRefTemp" disabled/>
-                            </div>
-                        </div>
-                  </div>
-              </div>
-
-
-              <!-- OC 2-->
-              <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                  <div class="mdl-card mdl-shadow--2dp weather">
-                      <div class="mdl-card__title">
-                          <div class="mdl-layout-spacer">อุณหภูมิห้อง 1</div>
-                            <div class="mdl-card__subtitle-text">
-                              <i class="material-icons">room</i>Minsk, Belarus</div>
-                          </div>
-                          <div class="mdl-card__supporting-text mdl-card--expand" >
-                            <div style="padding: 1px;width:70%;margin:auto;">
-                              <input style="width: 200px;height:150px;color:green;text-align:center;font-size:50px"  id="showvalue2" disabled/>
-                            </div>
-                        </div>
-                  </div>
-              </div>
-
-
-                <!-- Weather widget 1-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer text-color--gray">พัดลมตัวที่ 1</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <input class="checkbox" id="slideThree1" type="checkbox"/>
-                                <label for="slideThree1"></label>
-                                <p class="weather-description text-color--gray">อุณหภูมิพัดลม</p>
-                          </div>
-                    </div>
+                    <table border="0" class="table table-hover " width="100%">
+                      <tr>
+                        <td><input name="radio" type="radio" id="option1" class="css_data_item"  value="1" /></td>
+                        <td><span style="font-size:35px">25</span></td>
+                      </tr>
+                      <tr>
+                        <td><input name="radio" type="radio" class="css_data_item" id="option2" value="1" /></td>
+                        <td><span style="font-size:35px">30</span></td>
+                      </tr>
+                      <tr>
+                        <td><input name="radio" type="radio" class="css_data_item" id="option3" value="1" /></td>
+                        <td><span style="font-size:35px">35</span></td>
+                      </tr>
+                      </table>
                 </div>
+          </div>
+      </div> -->
 
-                <!-- Weather widget 1-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer text-color--gray">พัดลมตัวที่ 2</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <input class="checkbox" id="slideThree2" type="checkbox"/>
-                                <label for="slideThree2"></label>
-                                <p class="weather-description">Cloudy and snow</p>
-                          </div>
-                    </div>
-                </div>
-
-                <!-- Weather widget 3-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer">พัดลมตัวที่ 3</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <input class="checkbox" id="slideThree3" type="checkbox"/>
-                                <label for="slideThree3"></label>
-                                <p class="weather-description">Cloudy and snow</p>
-                          </div>
-                    </div>
-                </div>
-
-                <!-- Weather widget 4-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer">พัดลมตัวที่ 4</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <input class="checkbox" id="slideThree4" type="checkbox"/>
-                                <label for="slideThree4"></label>
-                                <p class="weather-description">Cloudy and snow</p>
-                          </div>
-                    </div>
-                </div>
-
-                <!-- Weather widget 5-->
-                <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp weather">
-                        <div class="mdl-card__title">
-                            <div class="mdl-layout-spacer">พัดลมตัวที่ 5</div>
-                              <div class="mdl-card__subtitle-text">
-                                <i class="material-icons">room</i>Minsk, Belarus</div>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <input class="checkbox" id="slideThree5" type="checkbox"/>
-                                <label for="slideThree5"></label>
-                                <p class="weather-description">Cloudy and snow</p>
-                          </div>
-                    </div>
-                </div>
+      <!-- text 1-->
+      <div class="content">
+        <h3 class="title">อุณภูมิที่กำหนด <span id="myspan2" style="font-size:20px;"></span> &nbsp;</h3>
+          <div class="center">
+            <span id="myspan" style="font-size:60px;"></span>
+          </div>
+      </div>
 
 
-
+        <!-- checkbox 1-->
+        <div class="content">
+          <h3 class="title">กำหนดอุณภูมิ &nbsp;</h3>
+            <div class="center">
+              <center>
+                <table width="100%">
+                  <tr class="center">
+                    <td ><input name="radio" type="radio" id="option1" value="1" /></td>
+                    <td ><input name="radio" type="radio" id="option2" value="1" /></td>
+                    <td ><input name="radio" type="radio" id="option3" value="1" /></td>
+                  </tr>
+                  <tr class="center">
+                    <td><span style="font-size:30px;align:center;">25</span></td>
+                    <td><span style="font-size:30px;">30</span></td>
+                    <td><span style="font-size:30px;">35</span></td>
+                  </tr>
+                </table>
+              </center>
             </div>
         </div>
 
-    </main>
 
-</div>
+        <!-- checkbox 1-->
+        <div class="content">
+          <h3 class="title">พัดลมตัวที่ 1 &nbsp;</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="slideThree1" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
 
-<!-- inject:js -->
-<script src="js/d3.min.js"></script>
-<script src="js/getmdl-select.min.js"></script>
-<script src="js/material.min.js"></script>
-<script src="js/nv.d3.min.js"></script>
-<script src="js/layout/layout.min.js"></script>
-<script src="js/scroll/scroll.min.js"></script>
-<script src="js/widgets/charts/discreteBarChart.min.js"></script>
-<script src="js/widgets/charts/linePlusBarChart.min.js"></script>
-<script src="js/widgets/charts/stackedBarChart.min.js"></script>
-<script src="js/widgets/employer-form/employer-form.min.js"></script>
-<script src="js/widgets/line-chart/line-charts-nvd3.min.js"></script>
-<script src="js/widgets/map/maps.min.js"></script>
-<script src="js/widgets/pie-chart/pie-charts-nvd3.min.js"></script>
-<script src="js/widgets/table/table.min.js"></script>
-<script src="js/widgets/todo/todo.min.js"></script>
-<!-- endinject -->
+        <!-- checkbox 2-->
+        <div class="content">
+          <h3 class="title">พัดลมตัวที่ 2 &nbsp;</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="slideThree2" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
 
+        <!-- checkbox 3-->
+        <div class="content">
+          <h3 class="title">พัดลมตัวที่ 3 &nbsp;</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="slideThree3" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
 
-<script>
-// var today  = new Date();
-// var time = today.getHours() + ":"
-//          + today.getMinutes() + ":"
-//          + today.getSeconds();
-// document.getElementById("demo").innerHTML = time;
+        <!-- checkbox 4-->
+        <div class="content">
+          <h3 class="title">พัดลมตัวที่ 4 &nbsp;</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="slideThree4" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
 
-/*
-Esqueleto de la BD
-var db = firebase.database().ref('home').set({
-  led1:true,
-  led2:true,
-  led3:true
-});
-*/
+        <!-- checkbox 5-->
+        <div class="content">
+          <h3 class="title">พัดลมตัวที่ 5 &nbsp;</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="slideThree5" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
 
-// var db = firebase.database().ref('user').set({
-//   room1:41,
-//   room2:34,
-//   room3:30
-// });
-
-
-
-/// กำหนดอุณุภูมิ และ แสดงผลุณุภูมิ 25 30 35 ///
-
-  //กำหนดอุณุภูมิ 25
-  $("#option1").click(function(){
-  var update = "25";
-        dbRefTemIN.update({
-          RefTemp:update
-        });
-  });
-  //กำหนดอุณุภูมิ 30
-  $("#option2").click(function(){
-  var update = "30";
-        dbRefTemIN.update({
-          RefTemp:update
-        });
-  });
-  //กำหนดอุณุภูมิ 35
-  $("#option3").click(function(){
-  var update = "35";
-        dbRefTemIN.update({
-          RefTemp:update
-        });
-  });
-  //ดึงข้อมูลจาก firebase
-  var dbRefTemIN = firebase.database().ref('RefTemIN');
-      dbRefTemIN.on('value', function(data){
-       console.log("data: ", data.val());
-
-        // แสดงผลุณุภูมิ 25 30 35
-        $("#runRefTemp").val(data.val().RefTemp);
-        // check radio reture value
-        if (data.val().RefTemp == '25') $("#option1").prop('checked', true); else $("#option1").prop('checked', false);
-        if (data.val().RefTemp == '30') $("#option2").prop('checked', true); else $("#option2").prop('checked', false);
-        if (data.val().RefTemp == '35') $("#option3").prop('checked', true); else $("#option3").prop('checked', false);
-    });
+        <!-- text 1-->
+        <div class="content">
+          <h3 class="title">อุณภูมิ 1 &nbsp;</h3>
+            <div class="center">
+              <span style="font-size:60px;">35.29</span>
+            </div>
+        </div>
 
 
+    </article>
 
+    <script>
 
-
-/// read text firebase  ///
-var dbtext = firebase.database().ref('user');
-    dbtext.on('value', function(data){
-     console.log("data: ", data.val());
-
-        $("#showvalue2").val(data.val().room2);
-          $("#showvalue3").val(data.val().room3);
-            $("#showvalue4").val(data.val().room4);
-              $("#showvalue5").val(data.val().room5);
-                $("#showvalue6").val(data.val().room6);
-  });
-
-
-
-
- //  function toggleApiOn() {
- //    $('#toggle-trigger').bootstrapToggle('on');
- //  }
- //  function toggleApiOff() {
- //    $('#toggle-trigger').bootstrapToggle('off');
- //  }
- //
- //  function toggleInpOn() {
- //   $('#toggle-trigger').prop('checked', true).change();
- // }
-
-/// read checkebox firebase  ///
-var db = firebase.database().ref('home');
-    db.on('value', function(data){
-     console.log("data: ", data.val());
-       // $("#slideThree").prop('checked', data.val().led0);
-         $("#slideThree1").prop('checked', data.val().led1);
-           $("#slideThree2").prop('checked', data.val().led2);
+    /// read checkebox firebase  ///
+    var db = firebase.database().ref('home');
+        db.on('value', function(data){
+         console.log("data: ", data.val());
+             $("#slideThree1").prop('checked', data.val().led1);
+             $("#slideThree2").prop('checked', data.val().led2);
              $("#slideThree3").prop('checked', data.val().led3);
-                $("#slideThree4").prop('checked', data.val().led4);
-                  $("#slideThree5").prop('checked', data.val().led5);
-                    $("#textinputshow").val(data.val().led0);
+             $("#slideThree4").prop('checked', data.val().led4);
+             $("#slideThree5").prop('checked', data.val().led5);
+      });
 
-                    // document.getElementById("textinputshow").value = data.val().led0;
-
-                    document.getElementById("textinputshow").innerHTML = data.val().led0;
-                
-                    $("#textinput").val(data.val().led0);
-
-
-
-      // if (data.val().led1 == '1') $("#slideThree1").prop('checked', true); else $("#slideThree1").prop('checked', false);
-  });
-
-  function adddamage() {
-alert($("#textinput").val());
-var updatetext = $("#textinput").val();
-    db.update({
-      led0:updatetext
-    });
-  }
-
-
-        // $("#slideThree").click(function(){
-        // var update = $(this).is(':checked');
-        //
-        //       db.update({
-        //         led0:update,
-        //         led1:update,
-        //         led2:update,
-        //         led3:update
-        //       });
-        // });
-
-
-        // $('#slideThree1').on('change', function(){
-        //    this.value = this.checked ? 1 : 0;
-        //    alert(this.value);
-        // }).change();
-
-
-        // $("#slideThree3").click(function(){
-        // var estado = $(this).is(':checked');
-        //
-        //       db.update({
-        //         led3:estado
-        //       });
-        // });
-
-        $("#slideThree1").click(function(){
+      $("#slideThree1").click(function(){
         var estado = this.checked ? 1 : 0;
-              db.update({
-                led1:estado
-              });
-        });
-
-
-
-        $("#slideThree2").click(function(){
+            db.update({
+              led1:estado
+                    });
+                });
+      $("#slideThree2").click(function(){
         var estado = this.checked ? 1 : 0;
-              db.update({
-                led2:estado
-              });
-        });
+            db.update({
+              led2:estado
+                    });
+                });
 
-        $("#slideThree3").click(function(){
+      $("#slideThree3").click(function(){
         var estado = this.checked ? 1 : 0;
-              db.update({
-                led3:estado
-              });
-        });
+            db.update({
+              led3:estado
+                    });
+                });
 
-        $("#slideThree4").click(function(){
+      $("#slideThree4").click(function(){
         var estado = this.checked ? 1 : 0;
-              db.update({
-                led4:estado
-              });
-        });
+            db.update({
+              led4:estado
+                    });
+                });
 
-        $("#slideThree5").click(function(){
+      $("#slideThree5").click(function(){
         var estado = this.checked ? 1 : 0;
-              db.update({
-                led5:estado
-              });
-        });
-
-</script>
+            db.update({
+              led5:estado
+                    });
+                });
 
 
-</body>
+
+
+
+
+
+        //ดึงข้อมูลจาก firebase
+        var dbRefTemIN = firebase.database().ref('RefTemIN');
+            dbRefTemIN.on('value', function(data){
+             console.log("data: ", data.val());
+
+              // แสดงผลุณุภูมิ 25 30 35
+              document.getElementById("myspan").textContent=data.val().RefTemp;
+              document.getElementById("myspan2").textContent=data.val().RefTemp;
+              // check radio reture value
+              if (data.val().RefTemp == '25') $("#option1").prop('checked', true); else $("#option1").prop('checked', false);
+              if (data.val().RefTemp == '30') $("#option2").prop('checked', true); else $("#option2").prop('checked', false);
+              if (data.val().RefTemp == '35') $("#option3").prop('checked', true); else $("#option3").prop('checked', false);
+          });
+
+          /// กำหนดอุณุภูมิ และ แสดงผลุณุภูมิ 25 30 35 ///
+            //กำหนดอุณุภูมิ 25
+            $("#option1").click(function(){
+            var update = "25";
+                  dbRefTemIN.update({
+                    RefTemp:update
+                  });
+            });
+            //กำหนดอุณุภูมิ 30
+            $("#option2").click(function(){
+            var update = "30";
+                  dbRefTemIN.update({
+                    RefTemp:update
+                  });
+            });
+            //กำหนดอุณุภูมิ 35
+            $("#option3").click(function(){
+            var update = "35";
+                  dbRefTemIN.update({
+                    RefTemp:update
+                  });
+            });
+
+
+    </script>
+
+  </body>
 </html>
