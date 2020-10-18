@@ -214,7 +214,9 @@ input[type=radio], input[type=checkbox] {
     background: #008688;
     color: rgba(255,255,255,.84);
 }
-
+/* #changeColor {
+  color: white;
+} */
 
 
   </style>
@@ -247,6 +249,19 @@ input[type=radio], input[type=checkbox] {
                 </div>
           </div>
       </div> -->
+
+      <!-- input text 1-->
+
+      <div class="content" id="changeColor">
+        <h3 class="title"><span id="textinputshow" style="font-size:20px;"></span></h3>
+          <div class="center">
+            <center>
+              <input id="textinput" type="text" >
+              <input id="colorinput" type="color" >
+              <input type="button" value="ตกลง" onclick="adddamage()">
+            </center>
+          </div>
+      </div>
 
       <!-- text 1-->
       <div class="content">
@@ -337,10 +352,11 @@ input[type=radio], input[type=checkbox] {
             </div>
         </div>
 
-
     </article>
 
     <script>
+
+
 
     /// read checkebox firebase  ///
     var db = firebase.database().ref('home');
@@ -351,7 +367,16 @@ input[type=radio], input[type=checkbox] {
              $("#slideThree3").prop('checked', data.val().led3);
              $("#slideThree4").prop('checked', data.val().led4);
              $("#slideThree5").prop('checked', data.val().led5);
+
+
+             $("#textinput").val(data.val().led0);
+             $("#colorinput").val(data.val().ledcolor);
+
+             document.getElementById("textinputshow").innerHTML = data.val().led0;
+             document.getElementById("changeColor").style.background = data.val().ledcolor;
+
       });
+
 
       $("#slideThree1").click(function(){
         var estado = this.checked ? 1 : 0;
@@ -429,6 +454,23 @@ input[type=radio], input[type=checkbox] {
                     RefTemp:update
                   });
             });
+
+
+
+
+          function adddamage() {
+          // alert($("#textinput").val());
+            var updatetext = $("#textinput").val();
+            var updatecolor = $("#colorinput").val();
+              db.update({
+                led0:updatetext,
+                ledcolor:updatecolor
+              });
+              if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                location.reload();
+              }else {
+              }
+            }
 
 
     </script>
