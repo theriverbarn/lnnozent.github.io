@@ -211,7 +211,34 @@ input[type=radio], input[type=checkbox] {
   color: white;
 } */
 
+/* /////////////////////////////////////////////////////////////// button */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
 
+.button:hover {
+  background-color: #15202a;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 
 /* /////////////////////////////////////////////////////////////// silde menu */
@@ -278,13 +305,41 @@ input[type=radio], input[type=checkbox] {
 
     <article role="main" >
 
+      <!-- input text 1-->
+
+      <div class="content" id="pushcolor01">
+        <h4 class="title" id="pushcolor01_1">
+          <table width="100%" >
+            <tr>
+              <td ><input id="readcolor01_1" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="readtext01" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table>
+
+        </h4>
+          <div class="center">
+            <center>
+              <table width="100%" >
+                <tr>
+                  <td style="text-align:center"><input id="readcolor01" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+                </tr>
+              </table>
+              <br>
+              <button class="button" onclick="adddamage()">ตกลง</button>
+
+            </center>
+          </div>
+      </div>
+
+
       <!-- text 1-->
       <div class="content">
-        <h3 class="title">อุณภูมิที่กำหนด</h3>
+        <h3 class="title"><span id="texttem02" ></span></h3>
           <div class="center">
             <span id="readtem02" style="font-size:60px;"></span>
           </div>
       </div>
+
 
       <!-- text 1-->
       <div class="content">
@@ -293,6 +348,7 @@ input[type=radio], input[type=checkbox] {
             <span id="readtem01" style="font-size:60px;"></span>
           </div>
       </div>
+
 
         <!-- checkbox 1-->
         <div class="content">
@@ -339,8 +395,10 @@ input[type=radio], input[type=checkbox] {
              $("#checkbox01").prop('checked', data.val().led1);
              $("#readtext01").val(data.val().led0);
              $("#readcolor01").val(data.val().ledcolor);
-             document.getElementById("pushtext01").innerHTML = data.val().led0;
+             $("#readcolor01_1").val(data.val().ledcolor_1);
+
              document.getElementById("pushcolor01").style.background = data.val().ledcolor;
+             document.getElementById("pushcolor01_1").style.background = data.val().ledcolor_1;
       });
 
 
@@ -352,12 +410,14 @@ input[type=radio], input[type=checkbox] {
 
 /// add text & color ///
       function adddamage() {
-      // alert($("#readtext01").val());
+
         var updatetext01 = $("#readtext01").val();
         var updatecolor01 = $("#readcolor01").val();
+        var updatecolor01_1 = $("#readcolor01_1").val();
           db.update({
             led0:updatetext01,
-            ledcolor:updatecolor01
+            ledcolor:updatecolor01,
+            ledcolor_1:updatecolor01_1
           });
           // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
           //   location.reload();
@@ -382,14 +442,25 @@ input[type=radio], input[type=checkbox] {
 
 /// add radio ///
             $("#pushtem01").click(function(){
-              var update = 25;
+              var update = "25";
               dbRefTemIN.update({RefTemp:update});});
             $("#pushtem02").click(function(){
-              var update = 30;
+              var update = "30";
               dbRefTemIN.update({RefTemp:update});});
             $("#pushtem03").click(function(){
-              var update = 35;
+              var update = "35";
               dbRefTemIN.update({RefTemp:update});});
+
+
+/// textTemp firebase  ///
+      var dbtextTemp = firebase.database().ref('textTemp');
+          dbtextTemp.on('value', function(data){
+           console.log("data: ", data.val());
+            document.getElementById("texttem02").textContent=data.val().textTemp02;
+
+        });
+
+
 
 
       // Menu silde
@@ -400,12 +471,6 @@ input[type=radio], input[type=checkbox] {
         document.getElementById("mySidenav").style.width = "0";
       }
 
-
-      //
-      //
-      // $('body').on('click', function closeNav(){
-      //     document.getElementById("mySidenav").style.width = "0";
-      // });
 
 
 
