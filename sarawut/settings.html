@@ -290,23 +290,88 @@ input[type=radio], input[type=checkbox] {
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
       <a href="./index.html">Dashboard</a>
       <a href="./settings.html">Settings</a>
-      <a href="./indextest.html">Autonomous</a>
-      <a href="./indextest.html">Maintenance</a>
-      <a href="./indextest.html">Abount</a>
+      <a href="./autonomous.html">Autonomous</a>
+      <a href="./maintenance.html">Maintenance</a>
+      <a href="./abount.html">Abount</a>
     </div>
     <table width="100%" >
       <tr>
-        <th align="left"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
-        <th align="center"><span style="font-size:30px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-BOY</span></th>
-        <th align="center"><span style="font-size:30px;cursor:pointer;color:#ccc;" onclick="openNav()">My</span></th>
+        <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
+        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
+        <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
       </tr>
     </table>
 
 
     <article role="main" >
 
-      <!-- input text 1-->
 
+      <div class="content">
+        <h3 class="title">ตั้งค่าชดเชย</h3>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:right;font-size: 16px" width="80%">อุณภูมิที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin0" type="number"  style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">ความชื้นที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin1" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center" ></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">อุณภูมิที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin2" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">ความชื้นที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin3" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">อุณภูมิภายนอก : </td>
+                <td style="text-align:center"> <input id="ReftemSetin4" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addSetin()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content">
+        <h3 class="title">ตั้งค่าวิกฤต</h3>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:right;font-size: 16px" width="80%">วิกฤตอุณภูมิที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri0" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตความชื้นที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri1" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center" ></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตอุณภูมิที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri2" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตความชื้นที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri3" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตอุณภูมิภายนอก : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri4" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addSetcri()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+      <!-- input text color -->
       <div class="content" id="pushcolor01">
         <h4 class="title" id="pushcolor01_1">
           <table width="100%" >
@@ -325,61 +390,26 @@ input[type=radio], input[type=checkbox] {
                 </tr>
               </table>
               <br>
-              <button class="button" onclick="adddamage()">ตกลง</button>
-
+              <button class="button" onclick="addtextcolor()">ตกลง</button>
             </center>
           </div>
       </div>
 
-
-      <!-- text 1-->
-      <div class="content">
-        <h3 class="title"><span id="texttem02" ></span></h3>
-          <div class="center">
-            <span id="readtem02" style="font-size:60px;"></span>
-          </div>
-      </div>
-
-
-      <!-- text 1-->
-      <div class="content">
-        <h3 class="title">อุณภูมิที่กำหนด</h3>
-          <div class="center">
-            <span id="readtem01" style="font-size:60px;"></span>
-          </div>
-      </div>
-
-
-        <!-- checkbox 1-->
-        <div class="content">
-          <h3 class="title">กำหนดอุณภูมิ</h3>
-            <div class="center">
-              <center>
-                <table width="100%">
-                  <tr class="center">
-                    <td ><input name="radio" type="radio" id="pushtem01" value="1" /></td>
-                    <td ><input name="radio" type="radio" id="pushtem02" value="1" /></td>
-                    <td ><input name="radio" type="radio" id="pushtem03" value="1" /></td>
-                  </tr>
-                  <tr class="center">
-                    <td><span style="font-size:30px;align:center;">25</span></td>
-                    <td><span style="font-size:30px;">30</span></td>
-                    <td><span style="font-size:30px;">35</span></td>
-                  </tr>
-                </table>
-              </center>
-            </div>
+      <!-- <div class="content">
+        <h3 class="title">ความชื้นที่ 1</h3>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="ReftemSetcri01" type="number" style="font-size: 40px;height:60px;width:130px;text-align:center"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="adddamage()">ตกลง</button>
+          </center>
         </div>
+      </div> -->
 
-        <!-- checkbox 1-->
-        <div class="content">
-          <h3 class="title">พัดลมตัวที่ 1</h3>
-            <div class="center">
-              <center>
-                <input class="checkbox" id="checkbox01" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
-              </center>
-            </div>
-        </div>
 
 
     </article>
@@ -388,78 +418,244 @@ input[type=radio], input[type=checkbox] {
 
 
 
-/// read checkebox firebase  ///
-    var db = firebase.database().ref('home');
-        db.on('value', function(data){
-         console.log("data: ", data.val());
-             $("#checkbox01").prop('checked', data.val().led1);
-             $("#readtext01").val(data.val().led0);
-             $("#readcolor01").val(data.val().ledcolor);
-             $("#readcolor01_1").val(data.val().ledcolor_1);
-
-             document.getElementById("pushcolor01").style.background = data.val().ledcolor;
-             document.getElementById("pushcolor01_1").style.background = data.val().ledcolor_1;
-      });
 
 
-/// add checkbox ///
-      $("#checkbox01").click(function(){
-            var estado = this.checked ? 1 : 0;
-            db.update({led1:estado});});
 
-
-/// add text & color ///
-      function adddamage() {
-
-        var updatetext01 = $("#readtext01").val();
-        var updatecolor01 = $("#readcolor01").val();
-        var updatecolor01_1 = $("#readcolor01_1").val();
-          db.update({
-            led0:updatetext01,
-            ledcolor:updatecolor01,
-            ledcolor_1:updatecolor01_1
+    /// read offsetInput  ///
+        var dbRefTempIN = firebase.database().ref('RefTempIN/offsetInput');
+            dbRefTempIN.on('value', function(data){
+             var Setin0 = data.child("0").val(); var Setin1 = data.child("1").val(); var Setin2 = data.child("2").val();
+             var Setin3 = data.child("3").val(); var Setin4 = data.child("4").val();
+             $("#ReftemSetin0").val(Setin0); $("#ReftemSetin1").val(Setin1); $("#ReftemSetin2").val(Setin2);
+             $("#ReftemSetin3").val(Setin3); $("#ReftemSetin4").val(Setin4);
           });
-          // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
-          //   location.reload();
-          // }else {
-          // }
-        }
+          /// addSetin ///
+                function addSetin() {
+                  var ReftemSetin0 = parseInt($("#ReftemSetin0").val());
+                   var ReftemSetin1 = parseInt($("#ReftemSetin1").val());
+                    var ReftemSetin2 = parseInt($("#ReftemSetin2").val());
+                     var ReftemSetin3 = parseInt($("#ReftemSetin3").val());
+                      var ReftemSetin4 = parseInt($("#ReftemSetin4").val());
+                    dbRefTempIN.update({
+                        0:ReftemSetin0,
+                         1:ReftemSetin1,
+                          2:ReftemSetin2,
+                           3:ReftemSetin3,
+                            4:ReftemSetin4
+                    });
+                    alert('ทำการเปลียนแปลงตั้งค่าชดเชยเรียบร้อย');
+                    location.reload();
+                    // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                    //   location.reload();
+                    // }else {
+                    // }
+                  }
+
+
+    /// read offsetcritical  ///
+        var dbRefTempCri = firebase.database().ref('RefTempIN/offsetcritical');
+            dbRefTempCri.on('value', function(data){
+             var Setcri0 = data.child("0").val(); var Setcri1 = data.child("1").val(); var Setcri2 = data.child("2").val();
+             var Setcri3 = data.child("3").val(); var Setcri4 = data.child("4").val();
+             $("#ReftemSetcri0").val(Setcri0); $("#ReftemSetcri1").val(Setcri1); $("#ReftemSetcri2").val(Setcri2);
+             $("#ReftemSetcri3").val(Setcri3); $("#ReftemSetcri4").val(Setcri4);
+          });
+          /// addSetcri ///
+                function addSetcri() {
+                  var ReftemSetcri0 = parseInt($("#ReftemSetcri0").val());
+                   var ReftemSetcri1 = parseInt($("#ReftemSetcri1").val());
+                    var ReftemSetcri2 = parseInt($("#ReftemSetcri2").val());
+                     var ReftemSetcri3 = parseInt($("#ReftemSetcri3").val());
+                      var ReftemSetcri4 = parseInt($("#ReftemSetcri4").val());
+                    dbRefTempCri.update({
+                        0:ReftemSetcri0,
+                         1:ReftemSetcri1,
+                          2:ReftemSetcri2,
+                           3:ReftemSetcri3,
+                            4:ReftemSetcri4
+                    });
+                    alert('ทำการเปลียนแปลงตั้งค่าวิกฤตเรียบร้อย');
+                    location.reload();
+                    // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                    //   location.reload();
+                    // }else {
+                    // }
+                  }
 
 
 
-/// read radio firebase  ///
-      var dbRefTemIN = firebase.database().ref('RefTemIN');
-          dbRefTemIN.on('value', function(data){
-           console.log("data: ", data.val());
-            document.getElementById("readtem01").textContent=data.val().RefTemp;
-            document.getElementById("readtem02").textContent=data.val().Tem02;
 
-            if (data.val().RefTemp == '25') $("#pushtem01").prop('checked', true); else $("#pushtem01").prop('checked', false);
-            if (data.val().RefTemp == '30') $("#pushtem02").prop('checked', true); else $("#pushtem02").prop('checked', false);
-            if (data.val().RefTemp == '35') $("#pushtem03").prop('checked', true); else $("#pushtem03").prop('checked', false);
-        });
+                  /// read checkebox firebase  ///
+                      var db = firebase.database().ref('home');
+                          db.on('value', function(data){
+                           console.log("data: ", data.val());
+                               $("#readtext01").val(data.val().led0);
+                               $("#readcolor01").val(data.val().ledcolor);
+                               $("#readcolor01_1").val(data.val().ledcolor_1);
+                               document.getElementById("pushcolor01").style.background = data.val().ledcolor;
+                               document.getElementById("pushcolor01_1").style.background = data.val().ledcolor_1;
+                        });
+                  /// add text & color ///
+                        function addtextcolor() {
+                          var updatetext01 = $("#readtext01").val();
+                          var updatecolor01 = $("#readcolor01").val();
+                          var updatecolor01_1 = $("#readcolor01_1").val();
+                            db.update({
+                              led0:updatetext01,
+                              ledcolor:updatecolor01,
+                              ledcolor_1:updatecolor01_1
+                            });
+                            // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                            //   location.reload();
+                            // }else {
+                            // }
+                          }
 
 
-/// add radio ///
-            $("#pushtem01").click(function(){
-              var update = "25";
-              dbRefTemIN.update({RefTemp:update});});
-            $("#pushtem02").click(function(){
-              var update = "30";
-              dbRefTemIN.update({RefTemp:update});});
-            $("#pushtem03").click(function(){
-              var update = "35";
-              dbRefTemIN.update({RefTemp:update});});
 
 
-/// textTemp firebase  ///
-      var dbtextTemp = firebase.database().ref('textTemp');
-          dbtextTemp.on('value', function(data){
-           console.log("data: ", data.val());
-            document.getElementById("texttem02").textContent=data.val().textTemp02;
 
-        });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          /// read radio 1-33 & 34 ///
+              var dbINPUTCtrl = firebase.database().ref('INPUTCtral/Array/Data');
+                  dbINPUTCtrl.on('value', function(data){
+                   // console.log("data: ", data.val());
+                   var c1 = data.child("1").val();
+                   $("#c1").prop('checked', c1);
+
+                });
+
+              $("#c1").click(function(){ var c1 = this.checked ? 1 : 0; dbINPUTCtrl.update({1:c1}); });
+              $("#c2").click(function(){ var c2 = this.checked ? 1 : 0; dbINPUTCtrl.update({2:c2}); });
+              $("#c3").click(function(){ var c3 = this.checked ? 1 : 0; dbINPUTCtrl.update({3:c3}); });
+              $("#c4").click(function(){ var c4 = this.checked ? 1 : 0; dbINPUTCtrl.update({4:c4}); });
+              $("#c5").click(function(){ var c5 = this.checked ? 1 : 0; dbINPUTCtrl.update({5:c5}); });
+              $("#c6").click(function(){ var c6 = this.checked ? 1 : 0; dbINPUTCtrl.update({6:c6}); });
+              $("#c7").click(function(){ var c7 = this.checked ? 1 : 0; dbINPUTCtrl.update({7:c7}); });
+              $("#c8").click(function(){ var c8 = this.checked ? 1 : 0; dbINPUTCtrl.update({8:c8}); });
+              $("#c9").click(function(){ var c9 = this.checked ? 1 : 0; dbINPUTCtrl.update({9:c9}); });
+              $("#c10").click(function(){ var c10 = this.checked ? 1 : 0; dbINPUTCtrl.update({10:c10}); });
+              $("#c11").click(function(){ var c11 = this.checked ? 1 : 0; dbINPUTCtrl.update({11:c11}); });
+              $("#c12").click(function(){ var c12 = this.checked ? 1 : 0; dbINPUTCtrl.update({12:c12}); });
+              $("#c13").click(function(){ var c13 = this.checked ? 1 : 0; dbINPUTCtrl.update({13:c13}); });
+              $("#c14").click(function(){ var c14 = this.checked ? 1 : 0; dbINPUTCtrl.update({14:c14}); });
+              $("#c15").click(function(){ var c15 = this.checked ? 1 : 0; dbINPUTCtrl.update({15:c15}); });
+              $("#c16").click(function(){ var c16 = this.checked ? 1 : 0; dbINPUTCtrl.update({16:c16}); });
+              $("#c17").click(function(){ var c17 = this.checked ? 1 : 0; dbINPUTCtrl.update({17:c17}); });
+              $("#c18").click(function(){ var c18 = this.checked ? 1 : 0; dbINPUTCtrl.update({18:c18}); });
+              $("#c19").click(function(){ var c19 = this.checked ? 1 : 0; dbINPUTCtrl.update({19:c19}); });
+              $("#c20").click(function(){ var c20 = this.checked ? 1 : 0; dbINPUTCtrl.update({20:c20}); });
+              $("#c21").click(function(){ var c21 = this.checked ? 1 : 0; dbINPUTCtrl.update({21:c21}); });
+              $("#c22").click(function(){ var c22 = this.checked ? 1 : 0; dbINPUTCtrl.update({22:c22}); });
+              $("#c23").click(function(){ var c23 = this.checked ? 1 : 0; dbINPUTCtrl.update({23:c23}); });
+              $("#c24").click(function(){ var c24 = this.checked ? 1 : 0; dbINPUTCtrl.update({24:c24}); });
+              $("#c25").click(function(){ var c25 = this.checked ? 1 : 0; dbINPUTCtrl.update({25:c25}); });
+              $("#c26").click(function(){ var c26 = this.checked ? 1 : 0; dbINPUTCtrl.update({26:c26}); });
+              $("#c27").click(function(){ var c27 = this.checked ? 1 : 0; dbINPUTCtrl.update({27:c27}); });
+              $("#c28").click(function(){ var c28 = this.checked ? 1 : 0; dbINPUTCtrl.update({28:c28}); });
+              $("#c29").click(function(){ var c29 = this.checked ? 1 : 0; dbINPUTCtrl.update({29:c29}); });
+              $("#c30").click(function(){ var c30 = this.checked ? 1 : 0; dbINPUTCtrl.update({30:c30}); });
+              $("#c31").click(function(){ var c31 = this.checked ? 1 : 0; dbINPUTCtrl.update({31:c31}); });
+              $("#c32").click(function(){ var c32 = this.checked ? 1 : 0; dbINPUTCtrl.update({32:c32}); });
+              $("#c34").click(function(){ var c34 = this.checked ? 1 : 0; dbINPUTCtrl.update({34:c34}); });
+          /// /read radio 1-33 & 34 ///
+
+
+
+
+
+          /// Analog 0  ///
+                var dbanalog0 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                    dbanalog0.on('value', function(data){
+                      var analog0 = data.child("0").val();
+                      // document.getElementById("analog0_off").textContent= analog0;
+                      if (analog0 == "000") $("#analog0_off").prop('checked', true); else $("#analog0_off").prop('checked', false);
+                      if (analog0 == "002") $("#analog0_slow").prop('checked', true); else $("#analog0_slow").prop('checked', false);
+                      if (analog0 == "010") $("#analog0_fast").prop('checked', true); else $("#analog0_fast").prop('checked', false);
+                  });
+                      $("#analog0_off").click(function(){
+                        var update = "000";
+                        dbanalog0.update({0:update});});
+                      $("#analog0_slow").click(function(){
+                        var update = "002";
+                        dbanalog0.update({0:update});});
+                      $("#analog0_fast").click(function(){
+                        var update = "010";
+                        dbanalog0.update({0:update});});
+          /// /Analog 0  ///
+
+          /// Analog 1  ///
+                var dbanalog1 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                    dbanalog1.on('value', function(data){
+                      var analog1 = data.child("1").val();
+                      if (analog1 == "000") $("#analog1_off").prop('checked', true); else $("#analog1_off").prop('checked', false);
+                      if (analog1 == "002") $("#analog1_slow").prop('checked', true); else $("#analog1_slow").prop('checked', false);
+                      if (analog1 == "010") $("#analog1_fast").prop('checked', true); else $("#analog1_fast").prop('checked', false);
+                  });
+                      $("#analog1_off").click(function(){
+                        var update = "000";
+                        dbanalog1.update({1:update});});
+                      $("#analog1_slow").click(function(){
+                        var update = "002";
+                        dbanalog1.update({1:update});});
+                      $("#analog1_fast").click(function(){
+                        var update = "010";
+                        dbanalog1.update({1:update});});
+          /// /Analog 1  ///
+
+
+
+
+
+          /// read SensorIN 1-5 ///
+                var dbSensorIN = firebase.database().ref('SensorIN/Array/Data');
+                    dbSensorIN.on('value', function(data){
+                     // console.log("data: ", data.val());
+                      var sen1 = data.child("1").val();
+                      var sen2 = data.child("2").val();
+                      var sen3 = data.child("3").val();
+                      var sen4 = data.child("4").val();
+                      var sen5 = data.child("5").val();
+                      document.getElementById("sen1").textContent= sen1;
+                      document.getElementById("sen2").textContent= sen2;
+                      document.getElementById("sen3").textContent= sen3;
+                      document.getElementById("sen4").textContent= sen4;
+                      document.getElementById("sen5").textContent= sen5;
+                  });
+
+                  /// read dbMessage ///
+                        var dbMessage = firebase.database().ref('Message/Array/Data');
+                            dbMessage.on('value', function(data){
+                             // console.log("data: ", data.val());
+                              var msg = data.child("0").val();
+                              if (msg=="ระบบ : ไม่ทำงาน") {
+                                document.getElementById("msg").textContent= msg;
+                                document.getElementById("msg").style.color = "red";
+                              }else if (msg=="ระบบ : ทำงาน") {
+                                document.getElementById("msg").textContent= msg;
+                                document.getElementById("msg").style.color = "#02FF11 ";
+                              }else {
+                                document.getElementById("msg").textContent= "ระบบ : ล้มเหลว";
+                                document.getElementById("msg").style.color = "#02F2FF ";
+                              }
+                          });
 
 
 
