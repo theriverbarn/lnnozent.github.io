@@ -16,11 +16,11 @@
 
   <script>
     var config = {
-      apiKey: "AIzaSyDVAMzBCavz4SZED2xU8lx-qpGgoyacIcM",
-      authDomain: "rasberry-boy.firebaseapp.com",
-      databaseURL: "https://rasberry-boy.firebaseio.com",
-      storageBucket: "rasberry-boy.appspot.com",
-      messagingSenderId: "664102215589"
+      apiKey: "AIzaSyBo7J0gONCPF_BACmfVTLzUicsr6FDA2zE",
+      authDomain: "aisys-proj.firebaseapp.com",
+      databaseURL: "https://aisys-proj.firebaseio.com",
+      storageBucket: "aisys-proj.appspot.com",
+      messagingSenderId: "225516974281"
     };
     firebase.initializeApp(config);
   </script>
@@ -278,13 +278,93 @@ input[type=radio], input[type=checkbox] {
 
     <article role="main" >
 
-      <!-- text 1-->
+      <!-- sen 1-5 -->
       <div class="content">
-        <h3 class="title">อุณภูมิที่กำหนด</h3>
+        <h3 class="title">อุณภูมิที่ 1</h3>
+          <div class="center">
+            <span id="sen1" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 2</h3>
+          <div class="center">
+            <span id="sen2" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 3</h3>
+          <div class="center">
+            <span id="sen3" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 4</h3>
+          <div class="center">
+            <span id="sen4" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 5</h3>
+          <div class="center">
+            <span id="sen5" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <!-- /sen 1-5 -->
+
+      <!-- analog 0-->
+      <div class="content">
+        <h3 class="title">กำหนดความไว 0</h3>
+          <div class="center">
+            <center>
+              <table width="100%">
+                <tr class="center">
+                  <td ><input name="radio0" type="radio" id="analog0_off" value="000" /></td>
+                  <td ><input name="radio0" type="radio" id="analog0_slow" value="002" /></td>
+                  <td ><input name="radio0" type="radio" id="analog0_fast" value="010" /></td>
+                </tr>
+                <tr class="center">
+                  <td><span style="font-size:20px;align:center;">off</span></td>
+                  <td><span style="font-size:20px;">slow</span></td>
+                  <td><span style="font-size:20px;">fast</span></td>
+                </tr>
+              </table>
+            </center>
+          </div>
+      </div>
+      <!-- /analog 0-->
+
+      <!-- analog 1-->
+      <div class="content">
+        <h3 class="title">กำหนดความไว 1</h3>
+          <div class="center">
+            <center>
+              <table width="100%">
+                <tr class="center">
+                  <td ><input name="radio1" type="radio" id="analog1_off" value="000" /></td>
+                  <td ><input name="radio1" type="radio" id="analog1_slow" value="002" /></td>
+                  <td ><input name="radio1" type="radio" id="analog1_fast" value="010" /></td>
+                </tr>
+                <tr class="center">
+                  <td><span style="font-size:20px;align:center;">off</span></td>
+                  <td><span style="font-size:20px;">slow</span></td>
+                  <td><span style="font-size:20px;">fast</span></td>
+                </tr>
+              </table>
+            </center>
+          </div>
+      </div>
+      <!-- /analog 1-->
+
+
+
+
+      <!-- text 1-->
+      <!-- <div class="content">
+        <h3 class="title">อุณภูมิที่กำหนดss</h3>
           <div class="center">
             <span id="readtem02" style="font-size:60px;"></span>
           </div>
-      </div>
+      </div> -->
 
       <!-- text 1-->
       <div class="content">
@@ -316,7 +396,7 @@ input[type=radio], input[type=checkbox] {
         </div>
 
         <!-- checkbox 1-->
-        <div class="content">
+        <!-- <div class="content">
           <h3 class="title">พัดลมตัวที่ 1</h3>
             <div class="center">
               <center>
@@ -325,29 +405,235 @@ input[type=radio], input[type=checkbox] {
             </div>
         </div>
 
+        <div class="content">
+          <h3 class="title">สวิตช์ 1</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="c0" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
+
+        </div> -->
+
+        <!-- dbINPUTCtrl 1-33 $ 34 -->
+
+        <!-- 1 -->
+        <div class="content"><h3 class="title">สวิตช์ 1</h3>
+            <div class="center"><center><input class="checkbox" id="c1" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 2</h3>
+            <div class="center"><center><input class="checkbox" id="c2" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 3</h3>
+            <div class="center"><center><input class="checkbox" id="c3" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 4</h3>
+            <div class="center"><center><input class="checkbox" id="c4" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 5</h3>
+            <div class="center"><center><input class="checkbox" id="c5" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 6</h3>
+            <div class="center"><center><input class="checkbox" id="c6" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 7</h3>
+            <div class="center"><center><input class="checkbox" id="c7" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 8</h3>
+            <div class="center"><center><input class="checkbox" id="c8" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 9</h3>
+            <div class="center"><center><input class="checkbox" id="c9" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 10</h3>
+            <div class="center"><center><input class="checkbox" id="c10" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 11</h3>
+            <div class="center"><center><input class="checkbox" id="c11" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 12</h3>
+            <div class="center"><center><input class="checkbox" id="c12" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 13</h3>
+            <div class="center"><center><input class="checkbox" id="c13" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 14</h3>
+            <div class="center"><center><input class="checkbox" id="c14" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 15</h3>
+            <div class="center"><center><input class="checkbox" id="c15" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 16</h3>
+            <div class="center"><center><input class="checkbox" id="c16" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 17</h3>
+            <div class="center"><center><input class="checkbox" id="c17" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 18</h3>
+            <div class="center"><center><input class="checkbox" id="c18" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 19</h3>
+            <div class="center"><center><input class="checkbox" id="c19" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 20</h3>
+            <div class="center"><center><input class="checkbox" id="c20" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 21</h3>
+            <div class="center"><center><input class="checkbox" id="c21" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 22</h3>
+            <div class="center"><center><input class="checkbox" id="c22" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 23</h3>
+            <div class="center"><center><input class="checkbox" id="c23" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 24</h3>
+            <div class="center"><center><input class="checkbox" id="c24" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 25</h3>
+            <div class="center"><center><input class="checkbox" id="c25" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 26</h3>
+            <div class="center"><center><input class="checkbox" id="c26" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 27</h3>
+            <div class="center"><center><input class="checkbox" id="c27" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 28</h3>
+            <div class="center"><center><input class="checkbox" id="c28" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 29</h3>
+            <div class="center"><center><input class="checkbox" id="c29" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 30</h3>
+            <div class="center"><center><input class="checkbox" id="c30" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 31</h3>
+            <div class="center"><center><input class="checkbox" id="c31" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 32</h3>
+            <div class="center"><center><input class="checkbox" id="c32" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+
+        <!-- 2 -->
+        <div class="content"><h3 class="title">รีเซ็ต</h3>
+            <div class="center"><center><input class="checkbox" id="c34" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+
+        <!-- /dbINPUTCtrl 1-33 $ 34 -->
+
+
 
     </article>
 
     <script>
 
 
+    /// read c0-c34 ///
+        // var dbtest = firebase.database().ref('INPUTCtral/Array/Data');
+        //     dbtest.once("value").then(function(dataSnapshot) {
+        //
+        //         var childKey = dbtest.key;
+        //         var childData = dbtest.val();
+        //         console.log(childData);
+        //         $("#c0").prop('checked', data.val().c0);
+        //
+        //     });
 
-/// read checkebox firebase  ///
-    var db = firebase.database().ref('home');
-        db.on('value', function(data){
-         console.log("data: ", data.val());
-             $("#checkbox01").prop('checked', data.val().led1);
-             $("#readtext01").val(data.val().led0);
-             $("#readcolor01").val(data.val().ledcolor);
-             document.getElementById("pushtext01").innerHTML = data.val().led0;
-             document.getElementById("pushcolor01").style.background = data.val().ledcolor;
-      });
 
+    // var ref = firebase.database().ref("INPUTCtral/Array");
+    // ref.once("value").then(function(snapshot) {
+    //     var key = snapshot.key; // "ada"
+    //     var childKey = snapshot.child("Data/34").key; // "last"
+    //
+    //   });
+
+      // var ref = firebase.database().ref("INPUTCtral/Array");
+      // ref.once("value").then(function(snapshot) {
+      //     var nassme = snapshot.child("Data/34").val(); // {first:"Ada",last:"Lovelace"}
+      //     $("#c0").prop('checked', nassme);
+      //   });
+
+
+
+
+          /// read checkebox firebase  ///
+              var dbtest = firebase.database().ref('INPUTCtral/Array/Data');
+                  dbtest.on('value', function(data){
+                   // console.log("data: ", data.val());
+                   var a34 = data.child("34").val();
+                   var a33 = data.child("33").val();
+                  $("#c0").prop('checked', a34);
+                });
+
+        /// add checkbox ///
+              $("#c0").click(function(){
+                    var c0 = this.checked ? 1 : 0;
+                    dbtest.update({34:c0});
+                  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// read checkebox firebase  ///
+        var db = firebase.database().ref('home');
+            db.on('value', function(data){
+             // console.log("data: ", data.val());
+                 $("#checkbox01").prop('checked', data.val().led1);
+                 $("#readtext01").val(data.val().led0);
+                 $("#readcolor01").val(data.val().ledcolor);
+                 document.getElementById("pushtext01").innerHTML = data.val().led0;
+                 document.getElementById("pushcolor01").style.background = data.val().ledcolor;
+          });
 
 /// add checkbox ///
       $("#checkbox01").click(function(){
             var estado = this.checked ? 1 : 0;
-            db.update({led1:estado});});
+            db.update({led1:estado});
+          });
+
+
 
 
 /// add text & color ///
@@ -367,29 +653,31 @@ input[type=radio], input[type=checkbox] {
 
 
 
+
 /// read radio firebase  ///
-      var dbRefTemIN = firebase.database().ref('RefTemIN');
-          dbRefTemIN.on('value', function(data){
-           console.log("data: ", data.val());
+      var dbzefTemIN = firebase.database().ref('zefTemIN');
+          dbzefTemIN.on('value', function(data){
+           // console.log("data: ", data.val());
+            // var sen0 = data.child("1").val();
+            // document.getElementById("readtem01").textContent= sen0;
             document.getElementById("readtem01").textContent=data.val().RefTemp;
-            document.getElementById("readtem02").textContent=data.val().Tem02;
+            // document.getElementById("readtem02").textContent=data.val().Tem02;
 
             if (data.val().RefTemp == '25') $("#pushtem01").prop('checked', true); else $("#pushtem01").prop('checked', false);
             if (data.val().RefTemp == '30') $("#pushtem02").prop('checked', true); else $("#pushtem02").prop('checked', false);
             if (data.val().RefTemp == '35') $("#pushtem03").prop('checked', true); else $("#pushtem03").prop('checked', false);
         });
 
-
 /// add radio ///
             $("#pushtem01").click(function(){
               var update = 25;
-              dbRefTemIN.update({RefTemp:update});});
+              dbzefTemIN.update({RefTemp:update});});
             $("#pushtem02").click(function(){
               var update = 30;
-              dbRefTemIN.update({RefTemp:update});});
+              dbzefTemIN.update({RefTemp:update});});
             $("#pushtem03").click(function(){
               var update = 35;
-              dbRefTemIN.update({RefTemp:update});});
+              dbzefTemIN.update({RefTemp:update});});
 
 
       // Menu silde
@@ -406,6 +694,130 @@ input[type=radio], input[type=checkbox] {
       // $('body').on('click', function closeNav(){
       //     document.getElementById("mySidenav").style.width = "0";
       // });
+
+
+
+
+
+      /// read radio 1-33 & 34 ///
+          var dbINPUTCtrl = firebase.database().ref('INPUTCtrl/Array/Data');
+              dbINPUTCtrl.on('value', function(data){
+               // console.log("data: ", data.val());
+               var c1 = data.child("1").val(); var c2 = data.child("2").val(); var c3 = data.child("3").val(); var c4 = data.child("4").val(); var c5 = data.child("5").val();
+               var c6 = data.child("6").val(); var c7 = data.child("7").val(); var c8 = data.child("8").val(); var c9 = data.child("9").val(); var c10 = data.child("10").val();
+               var c11 = data.child("11").val(); var c12 = data.child("12").val(); var c13 = data.child("13").val(); var c14 = data.child("14").val(); var c15 = data.child("15").val();
+               var c16 = data.child("16").val(); var c17 = data.child("17").val(); var c18 = data.child("18").val(); var c19 = data.child("19").val(); var c20 = data.child("20").val();
+               var c21 = data.child("21").val(); var c22 = data.child("22").val(); var c23 = data.child("23").val(); var c24 = data.child("24").val(); var c25 = data.child("25").val();
+               var c26 = data.child("26").val(); var c27 = data.child("27").val(); var c28 = data.child("28").val(); var c29 = data.child("29").val(); var c30 = data.child("30").val();
+               var c31 = data.child("31").val(); var c32 = data.child("32").val(); var c34 = data.child("34").val();
+
+              $("#c1").prop('checked', c1); $("#c2").prop('checked', c2); $("#c3").prop('checked', c3); $("#c4").prop('checked', c4); $("#c5").prop('checked', c5);
+              $("#c6").prop('checked', c6); $("#c7").prop('checked', c7); $("#c8").prop('checked', c8); $("#c9").prop('checked', c9); $("#c10").prop('checked', c10);
+              $("#c11").prop('checked', c11); $("#c12").prop('checked', c12); $("#c13").prop('checked', c13); $("#c14").prop('checked', c14); $("#c15").prop('checked', c15);
+              $("#c16").prop('checked', c16); $("#c17").prop('checked', c17); $("#c18").prop('checked', c18); $("#c19").prop('checked', c19); $("#c20").prop('checked', c20);
+              $("#c21").prop('checked', c21); $("#c22").prop('checked', c22); $("#c23").prop('checked', c23); $("#c24").prop('checked', c24); $("#c25").prop('checked', c25);
+              $("#c26").prop('checked', c26); $("#c27").prop('checked', c27); $("#c28").prop('checked', c28); $("#c29").prop('checked', c29); $("#c30").prop('checked', c30);
+              $("#c31").prop('checked', c31); $("#c32").prop('checked', c32); $("#c34").prop('checked', c34);
+
+            });
+
+          $("#c1").click(function(){ var c1 = this.checked ? 1 : 0; dbINPUTCtrl.update({1:c1}); });
+          $("#c2").click(function(){ var c2 = this.checked ? 1 : 0; dbINPUTCtrl.update({2:c2}); });
+          $("#c3").click(function(){ var c3 = this.checked ? 1 : 0; dbINPUTCtrl.update({3:c3}); });
+          $("#c4").click(function(){ var c4 = this.checked ? 1 : 0; dbINPUTCtrl.update({4:c4}); });
+          $("#c5").click(function(){ var c5 = this.checked ? 1 : 0; dbINPUTCtrl.update({5:c5}); });
+          $("#c6").click(function(){ var c6 = this.checked ? 1 : 0; dbINPUTCtrl.update({6:c6}); });
+          $("#c7").click(function(){ var c7 = this.checked ? 1 : 0; dbINPUTCtrl.update({7:c7}); });
+          $("#c8").click(function(){ var c8 = this.checked ? 1 : 0; dbINPUTCtrl.update({8:c8}); });
+          $("#c9").click(function(){ var c9 = this.checked ? 1 : 0; dbINPUTCtrl.update({9:c9}); });
+          $("#c10").click(function(){ var c10 = this.checked ? 1 : 0; dbINPUTCtrl.update({10:c10}); });
+          $("#c11").click(function(){ var c11 = this.checked ? 1 : 0; dbINPUTCtrl.update({11:c11}); });
+          $("#c12").click(function(){ var c12 = this.checked ? 1 : 0; dbINPUTCtrl.update({12:c12}); });
+          $("#c13").click(function(){ var c13 = this.checked ? 1 : 0; dbINPUTCtrl.update({13:c13}); });
+          $("#c14").click(function(){ var c14 = this.checked ? 1 : 0; dbINPUTCtrl.update({14:c14}); });
+          $("#c15").click(function(){ var c15 = this.checked ? 1 : 0; dbINPUTCtrl.update({15:c15}); });
+          $("#c16").click(function(){ var c16 = this.checked ? 1 : 0; dbINPUTCtrl.update({16:c16}); });
+          $("#c17").click(function(){ var c17 = this.checked ? 1 : 0; dbINPUTCtrl.update({17:c17}); });
+          $("#c18").click(function(){ var c18 = this.checked ? 1 : 0; dbINPUTCtrl.update({18:c18}); });
+          $("#c19").click(function(){ var c19 = this.checked ? 1 : 0; dbINPUTCtrl.update({19:c19}); });
+          $("#c20").click(function(){ var c20 = this.checked ? 1 : 0; dbINPUTCtrl.update({20:c20}); });
+          $("#c21").click(function(){ var c21 = this.checked ? 1 : 0; dbINPUTCtrl.update({21:c21}); });
+          $("#c22").click(function(){ var c22 = this.checked ? 1 : 0; dbINPUTCtrl.update({22:c22}); });
+          $("#c23").click(function(){ var c23 = this.checked ? 1 : 0; dbINPUTCtrl.update({23:c23}); });
+          $("#c24").click(function(){ var c24 = this.checked ? 1 : 0; dbINPUTCtrl.update({24:c24}); });
+          $("#c25").click(function(){ var c25 = this.checked ? 1 : 0; dbINPUTCtrl.update({25:c25}); });
+          $("#c26").click(function(){ var c26 = this.checked ? 1 : 0; dbINPUTCtrl.update({26:c26}); });
+          $("#c27").click(function(){ var c27 = this.checked ? 1 : 0; dbINPUTCtrl.update({27:c27}); });
+          $("#c28").click(function(){ var c28 = this.checked ? 1 : 0; dbINPUTCtrl.update({28:c28}); });
+          $("#c29").click(function(){ var c29 = this.checked ? 1 : 0; dbINPUTCtrl.update({29:c29}); });
+          $("#c30").click(function(){ var c30 = this.checked ? 1 : 0; dbINPUTCtrl.update({30:c30}); });
+          $("#c31").click(function(){ var c31 = this.checked ? 1 : 0; dbINPUTCtrl.update({31:c31}); });
+          $("#c32").click(function(){ var c32 = this.checked ? 1 : 0; dbINPUTCtrl.update({32:c32}); });
+          $("#c34").click(function(){ var c34 = this.checked ? 1 : 0; dbINPUTCtrl.update({34:c34}); });
+      /// /read radio 1-33 & 34 ///
+
+
+
+
+
+      /// Analog 0  ///
+            var dbanalog0 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                dbanalog0.on('value', function(data){
+                  var analog0 = data.child("0").val();
+                  // document.getElementById("analog0_off").textContent= analog0;
+                  if (analog0 == "000") $("#analog0_off").prop('checked', true); else $("#analog0_off").prop('checked', false);
+                  if (analog0 == "002") $("#analog0_slow").prop('checked', true); else $("#analog0_slow").prop('checked', false);
+                  if (analog0 == "010") $("#analog0_fast").prop('checked', true); else $("#analog0_fast").prop('checked', false);
+              });
+                  $("#analog0_off").click(function(){
+                    var update = "000";
+                    dbanalog0.update({0:update});});
+                  $("#analog0_slow").click(function(){
+                    var update = "002";
+                    dbanalog0.update({0:update});});
+                  $("#analog0_fast").click(function(){
+                    var update = "010";
+                    dbanalog0.update({0:update});});
+      /// /Analog 0  ///
+
+      /// Analog 1  ///
+            var dbanalog1 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                dbanalog1.on('value', function(data){
+                  var analog1 = data.child("1").val();
+                  if (analog1 == "000") $("#analog1_off").prop('checked', true); else $("#analog1_off").prop('checked', false);
+                  if (analog1 == "002") $("#analog1_slow").prop('checked', true); else $("#analog1_slow").prop('checked', false);
+                  if (analog1 == "010") $("#analog1_fast").prop('checked', true); else $("#analog1_fast").prop('checked', false);
+              });
+                  $("#analog1_off").click(function(){
+                    var update = "000";
+                    dbanalog1.update({1:update});});
+                  $("#analog1_slow").click(function(){
+                    var update = "002";
+                    dbanalog1.update({1:update});});
+                  $("#analog1_fast").click(function(){
+                    var update = "010";
+                    dbanalog1.update({1:update});});
+      /// /Analog 1  ///
+
+
+
+
+
+      /// read SensorIN 1-5 ///
+            var dbSensorIN = firebase.database().ref('SensorIN/Array/Data');
+                dbSensorIN.on('value', function(data){
+                 // console.log("data: ", data.val());
+                  var sen1 = data.child("1").val();
+                  var sen2 = data.child("2").val();
+                  var sen3 = data.child("3").val();
+                  var sen4 = data.child("4").val();
+                  var sen5 = data.child("5").val();
+                  document.getElementById("sen1").textContent= sen1;
+                  document.getElementById("sen2").textContent= sen2;
+                  document.getElementById("sen3").textContent= sen3;
+                  document.getElementById("sen4").textContent= sen4;
+                  document.getElementById("sen5").textContent= sen5;
+              });
 
 
 
