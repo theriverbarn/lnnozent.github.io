@@ -256,6 +256,7 @@ input[type=radio], input[type=checkbox] {
   .sidenav a {font-size: 18px;}
 }
 
+
   </style>
   <body >
     <div id="mySidenav" class="sidenav">
@@ -263,15 +264,15 @@ input[type=radio], input[type=checkbox] {
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
       <a href="./index.html">Dashboard</a>
       <a href="./settings.html">Settings</a>
-      <a href="./indextest.html">Autonomous</a>
-      <a href="./indextest.html">Maintenance</a>
-      <a href="./indextest.html">Abount</a>
+      <a href="./autonomous.html">Autonomous</a>
+      <a href="./maintenance.html">Maintenance</a>
+      <a href="./abount.html">Abount</a>
     </div>
     <table width="100%" >
       <tr>
-        <th align="left"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
-        <th align="center"><span style="font-size:30px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
-        <th align="center"><span style="font-size:30px;cursor:pointer;color:#ccc;" onclick="openNav()">My</span></th>
+        <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
+        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
+        <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
       </tr>
     </table>
 
@@ -561,61 +562,6 @@ input[type=radio], input[type=checkbox] {
     <script>
 
 
-    /// read c0-c34 ///
-        // var dbtest = firebase.database().ref('INPUTCtral/Array/Data');
-        //     dbtest.once("value").then(function(dataSnapshot) {
-        //
-        //         var childKey = dbtest.key;
-        //         var childData = dbtest.val();
-        //         console.log(childData);
-        //         $("#c0").prop('checked', data.val().c0);
-        //
-        //     });
-
-
-    // var ref = firebase.database().ref("INPUTCtral/Array");
-    // ref.once("value").then(function(snapshot) {
-    //     var key = snapshot.key; // "ada"
-    //     var childKey = snapshot.child("Data/34").key; // "last"
-    //
-    //   });
-
-      // var ref = firebase.database().ref("INPUTCtral/Array");
-      // ref.once("value").then(function(snapshot) {
-      //     var nassme = snapshot.child("Data/34").val(); // {first:"Ada",last:"Lovelace"}
-      //     $("#c0").prop('checked', nassme);
-      //   });
-
-
-
-
-          /// read checkebox firebase  ///
-              var dbtest = firebase.database().ref('INPUTCtral/Array/Data');
-                  dbtest.on('value', function(data){
-                   // console.log("data: ", data.val());
-                   var a34 = data.child("34").val();
-                   var a33 = data.child("33").val();
-                  $("#c0").prop('checked', a34);
-                });
-
-        /// add checkbox ///
-              $("#c0").click(function(){
-                    var c0 = this.checked ? 1 : 0;
-                    dbtest.update({34:c0});
-                  });
-
-
-
-
-
-
-
-
-
-
-
-
-
     /// read checkebox firebase  ///
         var db = firebase.database().ref('home');
             db.on('value', function(data){
@@ -680,13 +626,6 @@ input[type=radio], input[type=checkbox] {
               dbzefTemIN.update({RefTemp:update});});
 
 
-      // Menu silde
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-      }
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
 
 
       //
@@ -694,8 +633,6 @@ input[type=radio], input[type=checkbox] {
       // $('body').on('click', function closeNav(){
       //     document.getElementById("mySidenav").style.width = "0";
       // });
-
-
 
 
 
@@ -800,6 +737,22 @@ input[type=radio], input[type=checkbox] {
       /// /Analog 1  ///
 
 
+      /// read dbMessage ///
+            var dbMessage = firebase.database().ref('Message/Array/Data');
+                dbMessage.on('value', function(data){
+                 // console.log("data: ", data.val());
+                  var msg = data.child("0").val();
+                  if (msg=="ระบบ : ไม่ทำงาน") {
+                    document.getElementById("msg").textContent= msg;
+                    document.getElementById("msg").style.color = "red";
+                  }else if (msg=="ระบบ : ทำงาน") {
+                    document.getElementById("msg").textContent= msg;
+                    document.getElementById("msg").style.color = "#02FF11 ";
+                  }else {
+                    document.getElementById("msg").textContent= "ระบบ : ล้มเหลว";
+                    document.getElementById("msg").style.color = "#02F2FF ";
+                  }
+              });
 
 
 
@@ -819,7 +772,13 @@ input[type=radio], input[type=checkbox] {
                   document.getElementById("sen5").textContent= sen5;
               });
 
-
+              // Menu silde
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "200px";
+              }
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+              }
 
     </script>
   </body>
