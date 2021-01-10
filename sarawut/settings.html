@@ -331,19 +331,7 @@ input[type=radio], input[type=checkbox] {
                 <td style="text-align:right;font-size: 16px">อุณภูมิภายนอก : </td>
                 <td style="text-align:center"> <input id="ReftemSetin4" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
               </tr>
-            </table>
-            <br>
-            <button class="button" onclick="addSetin()">ตกลง</button>
-          </center>
-        </div>
-      </div>
 
-
-      <div class="content">
-        <h3 class="title">ตั้งค่าวิกฤต</h3>
-        <div class="center">
-          <center>
-            <table width="100%" >
               <tr>
                 <td style="text-align:right;font-size: 16px" width="80%">วิกฤตอุณภูมิที่ 1 : </td>
                 <td style="text-align:center"> <input id="ReftemSetcri0" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
@@ -366,10 +354,12 @@ input[type=radio], input[type=checkbox] {
               </tr>
             </table>
             <br>
-            <button class="button" onclick="addSetcri()">ตกลง</button>
+            <button class="button" onclick="addSetin()">ตกลง</button>
           </center>
         </div>
       </div>
+
+
 
       <!-- input text color -->
       <div class="content" id="pushcolor01">
@@ -421,7 +411,8 @@ input[type=radio], input[type=checkbox] {
 
 
 
-    /// read offsetInput  ///
+    /// read RefTempIN  ///
+        var dbsetAct = firebase.database().ref('RefTempIN');
         var dbRefTempIN = firebase.database().ref('RefTempIN/offsetInput');
             dbRefTempIN.on('value', function(data){
              var Setin0 = data.child("0").val(); var Setin1 = data.child("1").val(); var Setin2 = data.child("2").val();
@@ -429,30 +420,7 @@ input[type=radio], input[type=checkbox] {
              $("#ReftemSetin0").val(Setin0); $("#ReftemSetin1").val(Setin1); $("#ReftemSetin2").val(Setin2);
              $("#ReftemSetin3").val(Setin3); $("#ReftemSetin4").val(Setin4);
           });
-          /// addSetin ///
-                function addSetin() {
-                  var ReftemSetin0 = parseInt($("#ReftemSetin0").val());
-                   var ReftemSetin1 = parseInt($("#ReftemSetin1").val());
-                    var ReftemSetin2 = parseInt($("#ReftemSetin2").val());
-                     var ReftemSetin3 = parseInt($("#ReftemSetin3").val());
-                      var ReftemSetin4 = parseInt($("#ReftemSetin4").val());
-                    dbRefTempIN.update({
-                        0:ReftemSetin0,
-                         1:ReftemSetin1,
-                          2:ReftemSetin2,
-                           3:ReftemSetin3,
-                            4:ReftemSetin4
-                    });
-                    alert('ทำการเปลียนแปลงตั้งค่าชดเชยเรียบร้อย');
-                    location.reload();
-                    // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
-                    //   location.reload();
-                    // }else {
-                    // }
-                  }
 
-
-    /// read offsetcritical  ///
         var dbRefTempCri = firebase.database().ref('RefTempIN/offsetcritical');
             dbRefTempCri.on('value', function(data){
              var Setcri0 = data.child("0").val(); var Setcri1 = data.child("1").val(); var Setcri2 = data.child("2").val();
@@ -460,29 +428,43 @@ input[type=radio], input[type=checkbox] {
              $("#ReftemSetcri0").val(Setcri0); $("#ReftemSetcri1").val(Setcri1); $("#ReftemSetcri2").val(Setcri2);
              $("#ReftemSetcri3").val(Setcri3); $("#ReftemSetcri4").val(Setcri4);
           });
-          /// addSetcri ///
-                function addSetcri() {
-                  var ReftemSetcri0 = parseInt($("#ReftemSetcri0").val());
-                   var ReftemSetcri1 = parseInt($("#ReftemSetcri1").val());
-                    var ReftemSetcri2 = parseInt($("#ReftemSetcri2").val());
-                     var ReftemSetcri3 = parseInt($("#ReftemSetcri3").val());
-                      var ReftemSetcri4 = parseInt($("#ReftemSetcri4").val());
+
+          /// addSetin ///
+                function addSetin() {
+                  var ReftemSetin0 = parseInt($("#ReftemSetin0").val());
+                   var ReftemSetin1 = parseInt($("#ReftemSetin1").val());
+                    var ReftemSetin2 = parseInt($("#ReftemSetin2").val());
+                     var ReftemSetin3 = parseInt($("#ReftemSetin3").val());
+                      var ReftemSetin4 = parseInt($("#ReftemSetin4").val());
+                       var ReftemSetcri0 = parseInt($("#ReftemSetcri0").val());
+                        var ReftemSetcri1 = parseInt($("#ReftemSetcri1").val());
+                         var ReftemSetcri2 = parseInt($("#ReftemSetcri2").val());
+                          var ReftemSetcri3 = parseInt($("#ReftemSetcri3").val());
+                           var ReftemSetcri4 = parseInt($("#ReftemSetcri4").val());
+                    dbRefTempIN.update({
+                        0:ReftemSetin0,
+                         1:ReftemSetin1,
+                          2:ReftemSetin2,
+                           3:ReftemSetin3,
+                            4:ReftemSetin4
+                          });
                     dbRefTempCri.update({
                         0:ReftemSetcri0,
                          1:ReftemSetcri1,
                           2:ReftemSetcri2,
                            3:ReftemSetcri3,
                             4:ReftemSetcri4
-                    });
-                    alert('ทำการเปลียนแปลงตั้งค่าวิกฤตเรียบร้อย');
+                          });
+                      dbsetAct.update({
+                          offsetButtonAct:1
+                            });
+                    alert('ทำการเปลียนแปลงตั้งค่าชดเชยเรียบร้อย');
                     location.reload();
                     // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
                     //   location.reload();
                     // }else {
                     // }
                   }
-
-
 
 
                   /// read checkebox firebase  ///
