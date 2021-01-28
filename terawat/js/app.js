@@ -1,7 +1,7 @@
 var config = {
-  apiKey: "AIzaSyDVAMzBCavz4SZED2xU8lx-qpGgoyacIcM",
-  authDomain: "rasberry-boy.firebaseapp.com",
-  databaseURL: "https://rasberry-boy.firebaseio.com",
-  storageBucket: "rasberry-boy.appspot.com",
-  messagingSenderId: "664102215589"
-};
+      apiKey: "AIzaSyBo7J0gONCPF_BACmfVTLzUicsr6FDA2zE",
+      authDomain: "aisys-proj.firebaseapp.com",
+      databaseURL: "https://aisys-proj.firebaseio.com",
+      storageBucket: "aisys-proj.appspot.com",
+      messagingSenderId: "225516974281"
+    };
