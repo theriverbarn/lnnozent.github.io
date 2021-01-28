@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FFT</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script src="js/app.js"></script>
+    </head>
+    <script>
+      firebase.initializeApp(config);
+    </script>
+  <body >
+    <div id="mySidenav" class="sidenav">
+      <a href="#"><img src="images/logo.png" width="80%" height="80%"> </a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+      <a href="./index.html">Dashboard</a>
+      <a href="./settings.html">Settings</a>
+      <a href="./autonomous.html">Autonomous</a>
+      <a href="./maintenance.html">Maintenance</a>
+      <a href="./abount.html">Abount</a>
+    </div>
+    <table width="100%" >
+      <tr>
+        <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
+        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
+        <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
+      </tr>
+    </table>
+
+
+    <article role="main" >
+
+
+      <div class="content">
+        <h3 class="title">ตั้งค่าชดเชย</h3>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:right;font-size: 16px" width="80%">อุณภูมิที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin0" type="number"  style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">ความชื้นที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin1" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center" ></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">อุณภูมิที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin2" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">ความชื้นที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetin3" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">อุณภูมิภายนอก : </td>
+                <td style="text-align:center"> <input id="ReftemSetin4" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+
+              <tr>
+                <td style="text-align:right;font-size: 16px" width="80%">วิกฤตอุณภูมิที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri0" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตความชื้นที่ 1 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri1" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center" ></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตอุณภูมิที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri2" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตความชื้นที่ 2 : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri3" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;font-size: 16px">วิกฤตอุณภูมิภายนอก : </td>
+                <td style="text-align:center"> <input id="ReftemSetcri4" type="number" style="font-size: 16px;height:25px;width:50px;text-align:center"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addSetin()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+
+      <!-- input text color -->
+      <div class="content" id="colorBody1">
+        <h4 class="title" id="colorSubject1">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject1" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject1" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody1" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody2">
+        <h4 class="title" id="colorSubject2">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject2" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject2" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody2" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+      <div class="content" id="colorBody3">
+        <h4 class="title" id="colorSubject3">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject3" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject3" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody3" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+      <div class="content" id="colorBody4">
+        <h4 class="title" id="colorSubject4">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject4" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject4" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody4" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody5">
+        <h4 class="title" id="colorSubject5">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject5" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject5" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody5" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody6">
+        <h4 class="title" id="colorSubject6">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject6" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject6" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody6" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody7">
+        <h4 class="title" id="colorSubject7">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject7" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject7" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody7" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody8">
+        <h4 class="title" id="colorSubject8">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject8" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject8" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody8" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div class="content" id="colorBody9">
+        <h4 class="title" id="colorSubject9">
+          <table width="100%" >
+            <tr>
+              <td ><input id="inputColorSubject9" type="color" style="font-size: 16px;height:29px;"></td>
+              <td ><input id="textSubject9" type="text" style="font-size: 16px;width:150px;text-align:right;"></td>
+            </tr>
+          </table></h4>
+        <div class="center">
+          <center>
+            <table width="100%" >
+              <tr>
+                <td style="text-align:center"><input id="inputColorBody9" type="color" style="font-size: 16px;height:30px;width:150px"></td>
+              </tr>
+            </table>
+            <br>
+            <button class="button" onclick="addtextcolor()">ตกลง</button>
+          </center>
+        </div>
+      </div>
+
+
+
+    </article>
+
+    <script>
+    /// read RefTempIN  ///
+        var dbsetAct = firebase.database().ref('RefTempIN');
+        var dbRefTempIN = firebase.database().ref('RefTempIN/offsetInput');
+            dbRefTempIN.on('value', function(data){
+             var Setin0 = data.child("0").val(); var Setin1 = data.child("1").val(); var Setin2 = data.child("2").val();
+             var Setin3 = data.child("3").val(); var Setin4 = data.child("4").val();
+             $("#ReftemSetin0").val(Setin0); $("#ReftemSetin1").val(Setin1); $("#ReftemSetin2").val(Setin2);
+             $("#ReftemSetin3").val(Setin3); $("#ReftemSetin4").val(Setin4);
+          });
+
+        var dbRefTempCri = firebase.database().ref('RefTempIN/offsetcritical');
+            dbRefTempCri.on('value', function(data){
+             var Setcri0 = data.child("0").val(); var Setcri1 = data.child("1").val(); var Setcri2 = data.child("2").val();
+             var Setcri3 = data.child("3").val(); var Setcri4 = data.child("4").val();
+             $("#ReftemSetcri0").val(Setcri0); $("#ReftemSetcri1").val(Setcri1); $("#ReftemSetcri2").val(Setcri2);
+             $("#ReftemSetcri3").val(Setcri3); $("#ReftemSetcri4").val(Setcri4);
+          });
+
+          /// addSetin ///
+                function addSetin() {
+                  var ReftemSetin0 = parseInt($("#ReftemSetin0").val());
+                   var ReftemSetin1 = parseInt($("#ReftemSetin1").val());
+                    var ReftemSetin2 = parseInt($("#ReftemSetin2").val());
+                     var ReftemSetin3 = parseInt($("#ReftemSetin3").val());
+                      var ReftemSetin4 = parseInt($("#ReftemSetin4").val());
+                       var ReftemSetcri0 = parseInt($("#ReftemSetcri0").val());
+                        var ReftemSetcri1 = parseInt($("#ReftemSetcri1").val());
+                         var ReftemSetcri2 = parseInt($("#ReftemSetcri2").val());
+                          var ReftemSetcri3 = parseInt($("#ReftemSetcri3").val());
+                           var ReftemSetcri4 = parseInt($("#ReftemSetcri4").val());
+                    dbRefTempIN.update({
+                        0:ReftemSetin0,
+                         1:ReftemSetin1,
+                          2:ReftemSetin2,
+                           3:ReftemSetin3,
+                            4:ReftemSetin4
+                          });
+                    dbRefTempCri.update({
+                        0:ReftemSetcri0,
+                         1:ReftemSetcri1,
+                          2:ReftemSetcri2,
+                           3:ReftemSetcri3,
+                            4:ReftemSetcri4
+                          });
+                      dbsetAct.update({
+                          offsetButtonAct:1
+                            });
+                    alert('ทำการเปลียนแปลงตั้งค่าชดเชยเรียบร้อย');
+                    location.reload();
+                    // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                    //   location.reload();
+                    // }else {
+                    // }
+                  }
+
+
+
+
+
+
+                  /// read checkebox firebase  ///
+                      var db = firebase.database().ref('colorSetting');
+                          db.on('value', function(data){
+                           console.log("data: ", data.val());
+                               $("#textSubject1").val(data.val().textSub1); $("#inputColorBody1").val(data.val().colorBody1); $("#inputColorSubject1").val(data.val().colorSub1);
+                               document.getElementById("colorBody1").style.background = data.val().colorBody1; document.getElementById("colorSubject1").style.background = data.val().colorSub1;
+
+                               $("#textSubject2").val(data.val().textSub2); $("#inputColorBody2").val(data.val().colorBody2); $("#inputColorSubject2").val(data.val().colorSub2);
+                               document.getElementById("colorBody2").style.background = data.val().colorBody2; document.getElementById("colorSubject2").style.background = data.val().colorSub2;
+
+                               $("#textSubject3").val(data.val().textSub3); $("#inputColorBody3").val(data.val().colorBody3); $("#inputColorSubject3").val(data.val().colorSub3);
+                               document.getElementById("colorBody3").style.background = data.val().colorBody3; document.getElementById("colorSubject3").style.background = data.val().colorSub3;
+
+                               $("#textSubject4").val(data.val().textSub4); $("#inputColorBody4").val(data.val().colorBody4); $("#inputColorSubject4").val(data.val().colorSub4);
+                               document.getElementById("colorBody4").style.background = data.val().colorBody4; document.getElementById("colorSubject4").style.background = data.val().colorSub4;
+
+                               $("#textSubject5").val(data.val().textSub5); $("#inputColorBody5").val(data.val().colorBody5); $("#inputColorSubject5").val(data.val().colorSub5);
+                               document.getElementById("colorBody5").style.background = data.val().colorBody5; document.getElementById("colorSubject5").style.background = data.val().colorSub5;
+
+                               $("#textSubject6").val(data.val().textSub6); $("#inputColorBody6").val(data.val().colorBody6); $("#inputColorSubject6").val(data.val().colorSub6);
+                               document.getElementById("colorBody6").style.background = data.val().colorBody6; document.getElementById("colorSubject6").style.background = data.val().colorSub6;
+
+                               $("#textSubject7").val(data.val().textSub7); $("#inputColorBody7").val(data.val().colorBody7); $("#inputColorSubject7").val(data.val().colorSub7);
+                               document.getElementById("colorBody7").style.background = data.val().colorBody7; document.getElementById("colorSubject7").style.background = data.val().colorSub7;
+
+                               $("#textSubject8").val(data.val().textSub8); $("#inputColorBody8").val(data.val().colorBody8); $("#inputColorSubject8").val(data.val().colorSub8);
+                               document.getElementById("colorBody8").style.background = data.val().colorBody8; document.getElementById("colorSubject8").style.background = data.val().colorSub8;
+
+                               $("#textSubject9").val(data.val().textSub9); $("#inputColorBody9").val(data.val().colorBody9); $("#inputColorSubject9").val(data.val().colorSub9);
+                               document.getElementById("colorBody9").style.background = data.val().colorBody9; document.getElementById("colorSubject9").style.background = data.val().colorSub9;
+
+                        });
+
+                  /// add text & color ///
+                        function addtextcolor() {
+                          var textSubject1 = $("#textSubject1").val(); var inputColorBody1 = $("#inputColorBody1").val(); var inputColorSubject1 = $("#inputColorSubject1").val();
+                          var textSubject2 = $("#textSubject2").val(); var inputColorBody2 = $("#inputColorBody2").val(); var inputColorSubject2 = $("#inputColorSubject2").val();
+                          var textSubject3 = $("#textSubject3").val(); var inputColorBody3 = $("#inputColorBody3").val(); var inputColorSubject3 = $("#inputColorSubject3").val();
+                          var textSubject4 = $("#textSubject4").val(); var inputColorBody4 = $("#inputColorBody4").val(); var inputColorSubject4 = $("#inputColorSubject4").val();
+                          var textSubject5 = $("#textSubject5").val(); var inputColorBody5 = $("#inputColorBody5").val(); var inputColorSubject5 = $("#inputColorSubject5").val();
+                          var textSubject6 = $("#textSubject6").val(); var inputColorBody6 = $("#inputColorBody6").val(); var inputColorSubject6 = $("#inputColorSubject6").val();
+                          var textSubject7 = $("#textSubject7").val(); var inputColorBody7 = $("#inputColorBody7").val(); var inputColorSubject7 = $("#inputColorSubject7").val();
+                          var textSubject8 = $("#textSubject8").val(); var inputColorBody8 = $("#inputColorBody8").val(); var inputColorSubject8 = $("#inputColorSubject8").val();
+                          var textSubject9 = $("#textSubject9").val(); var inputColorBody9 = $("#inputColorBody9").val(); var inputColorSubject9 = $("#inputColorSubject9").val();
+                            db.update({
+                              textSub1:textSubject1, colorBody1:inputColorBody1, colorSub1:inputColorSubject1,
+                              textSub2:textSubject2, colorBody2:inputColorBody2, colorSub2:inputColorSubject2,
+                              textSub3:textSubject3, colorBody3:inputColorBody3, colorSub3:inputColorSubject3,
+                              textSub4:textSubject4, colorBody4:inputColorBody4, colorSub4:inputColorSubject4,
+                              textSub5:textSubject5, colorBody5:inputColorBody5, colorSub5:inputColorSubject5,
+                              textSub6:textSubject6, colorBody6:inputColorBody6, colorSub6:inputColorSubject6,
+                              textSub7:textSubject7, colorBody7:inputColorBody7, colorSub7:inputColorSubject7,
+                              textSub8:textSubject8, colorBody8:inputColorBody8, colorSub8:inputColorSubject8,
+                              textSub9:textSubject9, colorBody9:inputColorBody9, colorSub9:inputColorSubject9,
+                            });
+                            // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+                            //   location.reload();
+                            // }else {
+                            // }
+                          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          //
+          //
+          //
+          //
+          //
+          //
+          //
+          // /// read radio 1-33 & 34 ///
+          //     var dbINPUTCtrl = firebase.database().ref('INPUTCtral/Array/Data');
+          //         dbINPUTCtrl.on('value', function(data){
+          //          // console.log("data: ", data.val());
+          //          var c1 = data.child("1").val();
+          //          $("#c1").prop('checked', c1);
+          //
+          //       });
+          //
+          //     $("#c1").click(function(){ var c1 = this.checked ? 1 : 0; dbINPUTCtrl.update({1:c1}); });
+          //     $("#c2").click(function(){ var c2 = this.checked ? 1 : 0; dbINPUTCtrl.update({2:c2}); });
+          //     $("#c3").click(function(){ var c3 = this.checked ? 1 : 0; dbINPUTCtrl.update({3:c3}); });
+          //     $("#c4").click(function(){ var c4 = this.checked ? 1 : 0; dbINPUTCtrl.update({4:c4}); });
+          //     $("#c5").click(function(){ var c5 = this.checked ? 1 : 0; dbINPUTCtrl.update({5:c5}); });
+          //     $("#c6").click(function(){ var c6 = this.checked ? 1 : 0; dbINPUTCtrl.update({6:c6}); });
+          //     $("#c7").click(function(){ var c7 = this.checked ? 1 : 0; dbINPUTCtrl.update({7:c7}); });
+          //     $("#c8").click(function(){ var c8 = this.checked ? 1 : 0; dbINPUTCtrl.update({8:c8}); });
+          //     $("#c9").click(function(){ var c9 = this.checked ? 1 : 0; dbINPUTCtrl.update({9:c9}); });
+          //     $("#c10").click(function(){ var c10 = this.checked ? 1 : 0; dbINPUTCtrl.update({10:c10}); });
+          //     $("#c11").click(function(){ var c11 = this.checked ? 1 : 0; dbINPUTCtrl.update({11:c11}); });
+          //     $("#c12").click(function(){ var c12 = this.checked ? 1 : 0; dbINPUTCtrl.update({12:c12}); });
+          //     $("#c13").click(function(){ var c13 = this.checked ? 1 : 0; dbINPUTCtrl.update({13:c13}); });
+          //     $("#c14").click(function(){ var c14 = this.checked ? 1 : 0; dbINPUTCtrl.update({14:c14}); });
+          //     $("#c15").click(function(){ var c15 = this.checked ? 1 : 0; dbINPUTCtrl.update({15:c15}); });
+          //     $("#c16").click(function(){ var c16 = this.checked ? 1 : 0; dbINPUTCtrl.update({16:c16}); });
+          //     $("#c17").click(function(){ var c17 = this.checked ? 1 : 0; dbINPUTCtrl.update({17:c17}); });
+          //     $("#c18").click(function(){ var c18 = this.checked ? 1 : 0; dbINPUTCtrl.update({18:c18}); });
+          //     $("#c19").click(function(){ var c19 = this.checked ? 1 : 0; dbINPUTCtrl.update({19:c19}); });
+          //     $("#c20").click(function(){ var c20 = this.checked ? 1 : 0; dbINPUTCtrl.update({20:c20}); });
+          //     $("#c21").click(function(){ var c21 = this.checked ? 1 : 0; dbINPUTCtrl.update({21:c21}); });
+          //     $("#c22").click(function(){ var c22 = this.checked ? 1 : 0; dbINPUTCtrl.update({22:c22}); });
+          //     $("#c23").click(function(){ var c23 = this.checked ? 1 : 0; dbINPUTCtrl.update({23:c23}); });
+          //     $("#c24").click(function(){ var c24 = this.checked ? 1 : 0; dbINPUTCtrl.update({24:c24}); });
+          //     $("#c25").click(function(){ var c25 = this.checked ? 1 : 0; dbINPUTCtrl.update({25:c25}); });
+          //     $("#c26").click(function(){ var c26 = this.checked ? 1 : 0; dbINPUTCtrl.update({26:c26}); });
+          //     $("#c27").click(function(){ var c27 = this.checked ? 1 : 0; dbINPUTCtrl.update({27:c27}); });
+          //     $("#c28").click(function(){ var c28 = this.checked ? 1 : 0; dbINPUTCtrl.update({28:c28}); });
+          //     $("#c29").click(function(){ var c29 = this.checked ? 1 : 0; dbINPUTCtrl.update({29:c29}); });
+          //     $("#c30").click(function(){ var c30 = this.checked ? 1 : 0; dbINPUTCtrl.update({30:c30}); });
+          //     $("#c31").click(function(){ var c31 = this.checked ? 1 : 0; dbINPUTCtrl.update({31:c31}); });
+          //     $("#c32").click(function(){ var c32 = this.checked ? 1 : 0; dbINPUTCtrl.update({32:c32}); });
+          //     $("#c34").click(function(){ var c34 = this.checked ? 1 : 0; dbINPUTCtrl.update({34:c34}); });
+          // /// /read radio 1-33 & 34 ///
+          //
+          //
+          //
+          //
+          //
+          // /// Analog 0  ///
+          //       var dbanalog0 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+          //           dbanalog0.on('value', function(data){
+          //             var analog0 = data.child("0").val();
+          //             // document.getElementById("analog0_off").textContent= analog0;
+          //             if (analog0 == "000") $("#analog0_off").prop('checked', true); else $("#analog0_off").prop('checked', false);
+          //             if (analog0 == "002") $("#analog0_slow").prop('checked', true); else $("#analog0_slow").prop('checked', false);
+          //             if (analog0 == "010") $("#analog0_fast").prop('checked', true); else $("#analog0_fast").prop('checked', false);
+          //         });
+          //             $("#analog0_off").click(function(){
+          //               var update = "000";
+          //               dbanalog0.update({0:update});});
+          //             $("#analog0_slow").click(function(){
+          //               var update = "002";
+          //               dbanalog0.update({0:update});});
+          //             $("#analog0_fast").click(function(){
+          //               var update = "010";
+          //               dbanalog0.update({0:update});});
+          // /// /Analog 0  ///
+          //
+          // /// Analog 1  ///
+          //       var dbanalog1 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+          //           dbanalog1.on('value', function(data){
+          //             var analog1 = data.child("1").val();
+          //             if (analog1 == "000") $("#analog1_off").prop('checked', true); else $("#analog1_off").prop('checked', false);
+          //             if (analog1 == "002") $("#analog1_slow").prop('checked', true); else $("#analog1_slow").prop('checked', false);
+          //             if (analog1 == "010") $("#analog1_fast").prop('checked', true); else $("#analog1_fast").prop('checked', false);
+          //         });
+          //             $("#analog1_off").click(function(){
+          //               var update = "000";
+          //               dbanalog1.update({1:update});});
+          //             $("#analog1_slow").click(function(){
+          //               var update = "002";
+          //               dbanalog1.update({1:update});});
+          //             $("#analog1_fast").click(function(){
+          //               var update = "010";
+          //               dbanalog1.update({1:update});});
+          // /// /Analog 1  ///
+          //
+          //
+          //
+          //
+          //
+          // /// read SensorIN 1-5 ///
+          //       var dbSensorIN = firebase.database().ref('SensorIN/Array/Data');
+          //           dbSensorIN.on('value', function(data){
+          //            // console.log("data: ", data.val());
+          //             var sen1 = data.child("1").val();
+          //             var sen2 = data.child("2").val();
+          //             var sen3 = data.child("3").val();
+          //             var sen4 = data.child("4").val();
+          //             var sen5 = data.child("5").val();
+          //             document.getElementById("sen1").textContent= sen1;
+          //             document.getElementById("sen2").textContent= sen2;
+          //             document.getElementById("sen3").textContent= sen3;
+          //             document.getElementById("sen4").textContent= sen4;
+          //             document.getElementById("sen5").textContent= sen5;
+          //         });
+          //
+          //         /// read dbMessage ///
+          //               var dbMessage = firebase.database().ref('Message/Array/Data');
+          //                   dbMessage.on('value', function(data){
+          //                    // console.log("data: ", data.val());
+          //                     var msg = data.child("0").val();
+          //                     if (msg=="ระบบ : ไม่ทำงาน") {
+          //                       document.getElementById("msg").textContent= msg;
+          //                       document.getElementById("msg").style.color = "red";
+          //                     }else if (msg=="ระบบ : ทำงาน") {
+          //                       document.getElementById("msg").textContent= msg;
+          //                       document.getElementById("msg").style.color = "#02FF11 ";
+          //                     }else {
+          //                       document.getElementById("msg").textContent= "ระบบ : ล้มเหลว";
+          //                       document.getElementById("msg").style.color = "#02F2FF ";
+          //                     }
+          //                 });
+
+
+
+      // Menu silde
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "200px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

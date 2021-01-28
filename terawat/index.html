@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FFT</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <!-- https://www.youtube.com/watch?v=aZaTWBfN3Vs   slider firebase-->
+
+
+  </head>
+  <script>
+    firebase.initializeApp(config);
+  </script>
+  <body >
+    <div id="mySidenav" class="sidenav">
+      <a href="#"><img src="images/logo.png" width="80%" height="80%" style="border-radius: 30px;"> </a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+      <a href="./index.html">Dashboard</a>
+      <a href="./settings.html">Settings</a>
+      <a href="./autonomous.html">Autonomous</a>
+      <a href="./maintenance.html">Maintenance</a>
+      <a href="./abount.html">Abount</a>
+    </div>
+    <table width="100%" >
+      <tr>
+        <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
+        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
+        <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
+      </tr>
+    </table>
+
+
+    <article role="main" >
+
+      <!-- sen 1-5 -->
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 1</h3>
+          <div class="center">
+            <span id="sen1" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 2</h3>
+          <div class="center">
+            <span id="sen2" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 3</h3>
+          <div class="center">
+            <span id="sen3" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 4</h3>
+          <div class="center">
+            <span id="sen4" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <div class="content">
+        <h3 class="title">อุณภูมิที่ 5</h3>
+          <div class="center">
+            <span id="sen5" style="font-size:60px;"></span>
+          </div>
+      </div>
+      <!-- /sen 1-5 -->
+
+      <!-- analog 0-->
+      <div class="content">
+        <h3 class="title">กำหนดความไว 0</h3>
+          <div class="center">
+            <center>
+              <table width="100%">
+                <tr class="center">
+                  <td ><input name="radio0" type="radio" id="analog0_off" value="000" /></td>
+                  <td ><input name="radio0" type="radio" id="analog0_slow" value="002" /></td>
+                  <td ><input name="radio0" type="radio" id="analog0_fast" value="010" /></td>
+                </tr>
+                <tr class="center">
+                  <td><span style="font-size:20px;align:center;">off</span></td>
+                  <td><span style="font-size:20px;">slow</span></td>
+                  <td><span style="font-size:20px;">fast</span></td>
+                </tr>
+              </table>
+            </center>
+          </div>
+      </div>
+      <!-- /analog 0-->
+
+      <!-- analog 1-->
+      <div class="content">
+        <h3 class="title">กำหนดความไว 1</h3>
+          <div class="center">
+            <center>
+              <table width="100%">
+                <tr class="center">
+                  <td ><input name="radio1" type="radio" id="analog1_off" value="000" /></td>
+                  <td ><input name="radio1" type="radio" id="analog1_slow" value="002" /></td>
+                  <td ><input name="radio1" type="radio" id="analog1_fast" value="010" /></td>
+                </tr>
+                <tr class="center">
+                  <td><span style="font-size:20px;align:center;">off</span></td>
+                  <td><span style="font-size:20px;">slow</span></td>
+                  <td><span style="font-size:20px;">fast</span></td>
+                </tr>
+              </table>
+            </center>
+          </div>
+      </div>
+      <!-- /analog 1-->
+
+
+
+
+      <!-- text 1-->
+      <!-- <div class="content">
+        <h3 class="title">อุณภูมิที่กำหนดss</h3>
+          <div class="center">
+            <span id="readtem02" style="font-size:60px;"></span>
+          </div>
+      </div> -->
+
+      <!-- text 1-->
+      <div class="content">
+        <h3 class="title">อุณภูมิที่กำหนด</h3>
+          <div class="center">
+            <span id="readtem01" style="font-size:60px;"></span>
+          </div>
+      </div>
+
+        <!-- checkbox 1-->
+        <div class="content">
+          <h3 class="title">กำหนดอุณภูมิ</h3>
+            <div class="center">
+              <center>
+                <table width="100%">
+                  <tr class="center">
+                    <td ><input name="radio" type="range" id="pushtem01" min="0" max="10"/></td>
+                    <!-- <td ><input name="radio" type="radio" id="pushtem02" value="1" /></td>
+                    <td ><input name="radio" type="radio" id="pushtem03" value="1" /></td> -->
+                  </tr>
+                  <!-- <tr class="center">
+                    <td><span style="font-size:30px;align:center;">25</span></td>
+                    <td><span style="font-size:30px;">30</span></td>
+                    <td><span style="font-size:30px;">35</span></td>
+                  </tr> -->
+                </table>
+              </center>
+            </div>
+        </div>
+
+        <!-- checkbox 1-->
+        <!-- <div class="content">
+          <h3 class="title">พัดลมตัวที่ 1</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="checkbox01" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
+
+        <div class="content">
+          <h3 class="title">สวิตช์ 1</h3>
+            <div class="center">
+              <center>
+                <input class="checkbox" id="c0" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/>
+              </center>
+            </div>
+        </div>
+
+        </div> -->
+
+        <!-- dbINPUTCtrl 1-33 $ 34 -->
+
+        <!-- 1 -->
+        <div id="colorBody1" class="content"><h3 id="colorSubject1" class="title"><span id="textSubject1"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c1" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody2" class="content"><h3 id="colorSubject2" class="title"><span id="textSubject2"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c2" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody3" class="content"><h3 id="colorSubject3" class="title"><span id="textSubject3"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c3" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody4" class="content"><h3 id="colorSubject4" class="title"><span id="textSubject4"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c4" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody5" class="content"><h3 id="colorSubject5" class="title"><span id="textSubject5"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c5" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody6" class="content"><h3 id="colorSubject6" class="title"><span id="textSubject6"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c6" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody7" class="content"><h3 id="colorSubject7" class="title"><span id="textSubject7"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c7" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody8" class="content"><h3 id="colorSubject8" class="title"><span id="textSubject8"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c8" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div id="colorBody9" class="content"><h3 id="colorSubject9" class="title"><span id="textSubject9"></span></h3>
+            <div class="center"><center><input class="checkbox" id="c9" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 10</h3>
+            <div class="center"><center><input class="checkbox" id="c10" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 11</h3>
+            <div class="center"><center><input class="checkbox" id="c11" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 12</h3>
+            <div class="center"><center><input class="checkbox" id="c12" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 13</h3>
+            <div class="center"><center><input class="checkbox" id="c13" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 14</h3>
+            <div class="center"><center><input class="checkbox" id="c14" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 15</h3>
+            <div class="center"><center><input class="checkbox" id="c15" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 16</h3>
+            <div class="center"><center><input class="checkbox" id="c16" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 17</h3>
+            <div class="center"><center><input class="checkbox" id="c17" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 18</h3>
+            <div class="center"><center><input class="checkbox" id="c18" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 19</h3>
+            <div class="center"><center><input class="checkbox" id="c19" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 20</h3>
+            <div class="center"><center><input class="checkbox" id="c20" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 21</h3>
+            <div class="center"><center><input class="checkbox" id="c21" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 22</h3>
+            <div class="center"><center><input class="checkbox" id="c22" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 23</h3>
+            <div class="center"><center><input class="checkbox" id="c23" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 24</h3>
+            <div class="center"><center><input class="checkbox" id="c24" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 25</h3>
+            <div class="center"><center><input class="checkbox" id="c25" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 26</h3>
+            <div class="center"><center><input class="checkbox" id="c26" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 27</h3>
+            <div class="center"><center><input class="checkbox" id="c27" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 28</h3>
+            <div class="center"><center><input class="checkbox" id="c28" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 29</h3>
+            <div class="center"><center><input class="checkbox" id="c29" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 30</h3>
+            <div class="center"><center><input class="checkbox" id="c30" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 31</h3>
+            <div class="center"><center><input class="checkbox" id="c31" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+        <!-- 2 -->
+        <div class="content"><h3 class="title">สวิตช์ 32</h3>
+            <div class="center"><center><input class="checkbox" id="c32" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+
+        <!-- 2 -->
+        <div class="content"><h3 class="title">รีเซ็ต</h3>
+            <div class="center"><center><input class="checkbox" id="c34" type="checkbox" style="margin-right:100px;margin-top:15px;margin-bottom:55px"/></center></div>
+        </div>
+
+        <!-- /dbINPUTCtrl 1-33 $ 34 -->
+
+
+
+    </article>
+
+    <script>
+
+
+
+
+//         var db = firebase.database().ref('home');
+//             db.on('value', function(data){
+//                  $("#checkbox01").prop('checked', data.val().led1);
+//           });
+//       $("#checkbox01").click(function(){
+//             var estado = this.checked ? 1 : 0;
+//             db.update({led1:estado});
+//           });
+//
+//
+//
+//
+// /// add text & color ///
+//       function adddamage() {
+//       // alert($("#readtext01").val());
+//         var updatetext01 = $("#readtext01").val();
+//         var updatecolor01 = $("#readcolor01").val();
+//           db.update({
+//             led0:updatetext01,
+//             ledcolor:updatecolor01
+//           });
+//           // if (confirm('กรุณายืนยันการเปลียนแปลง')) {
+//           //   location.reload();
+//           // }else {
+//           // }
+//         }
+
+
+
+
+/// read radio firebase  ///
+      var dbzefTemIN = firebase.database().ref('zefTemIN');
+          dbzefTemIN.on('value', function(data){
+           // console.log("data: ", data.val());
+            // var sen0 = data.child("1").val();
+            // document.getElementById("readtem01").textContent= sen0;
+            document.getElementById("readtem01").textContent=data.val().RefTemp;
+            // document.getElementById("readtem02").textContent=data.val().Tem02;
+
+            document.getElementById("pushtem01").value = data.val().RefTemp;
+
+
+            // if (data.val().RefTemp == '25') $("#pushtem01").prop('checked', true);
+            // else $("#pushtem01").prop('checked', false);
+
+
+
+            // if (data.val().RefTemp == '25') $("#pushtem01").prop('checked', true); else $("#pushtem01").prop('checked', false);
+            // if (data.val().RefTemp == '30') $("#pushtem02").prop('checked', true); else $("#pushtem02").prop('checked', false);
+            // if (data.val().RefTemp == '35') $("#pushtem03").prop('checked', true); else $("#pushtem03").prop('checked', false);
+        });
+
+/// add radio ///
+$("#pushtem01").on("change input", function() {
+  var currentvalue = $(this).val();
+  console.log(currentvalue);
+  dbzefTemIN.update({RefTemp:currentvalue});
+});
+
+
+// var pushtem01 = $("#pushtem01").val();
+// dbzefTemIN.update({RefTemp:pushtem01});
+//
+//             $("#pushtem01").click(function(){
+//               var update = 25;
+//               dbzefTemIN.update({RefTemp:update});});
+//             $("#pushtem02").click(function(){
+//               var update = 30;
+//               console.log(update);
+//               dbzefTemIN.update({RefTemp:update});});
+//             $("#pushtem03").click(function(){
+//               var update = 35;
+//               dbzefTemIN.update({RefTemp:update});});
+
+
+
+
+      //
+      //
+      // $('body').on('click', function closeNav(){
+      //     document.getElementById("mySidenav").style.width = "0";
+      // });
+
+
+
+      /// read radio 1-33 & 34 ///
+          var dbINPUTCtrl = firebase.database().ref('INPUTCtrl/Array/Data');
+              dbINPUTCtrl.on('value', function(data){
+               // console.log("data: ", data.val());
+               var c1 = data.child("1").val(); var c2 = data.child("2").val(); var c3 = data.child("3").val(); var c4 = data.child("4").val(); var c5 = data.child("5").val();
+               var c6 = data.child("6").val(); var c7 = data.child("7").val(); var c8 = data.child("8").val(); var c9 = data.child("9").val(); var c10 = data.child("10").val();
+               var c11 = data.child("11").val(); var c12 = data.child("12").val(); var c13 = data.child("13").val(); var c14 = data.child("14").val(); var c15 = data.child("15").val();
+               var c16 = data.child("16").val(); var c17 = data.child("17").val(); var c18 = data.child("18").val(); var c19 = data.child("19").val(); var c20 = data.child("20").val();
+               var c21 = data.child("21").val(); var c22 = data.child("22").val(); var c23 = data.child("23").val(); var c24 = data.child("24").val(); var c25 = data.child("25").val();
+               var c26 = data.child("26").val(); var c27 = data.child("27").val(); var c28 = data.child("28").val(); var c29 = data.child("29").val(); var c30 = data.child("30").val();
+               var c31 = data.child("31").val(); var c32 = data.child("32").val(); var c34 = data.child("34").val();
+
+              $("#c1").prop('checked', c1); $("#c2").prop('checked', c2); $("#c3").prop('checked', c3); $("#c4").prop('checked', c4); $("#c5").prop('checked', c5);
+              $("#c6").prop('checked', c6); $("#c7").prop('checked', c7); $("#c8").prop('checked', c8); $("#c9").prop('checked', c9); $("#c10").prop('checked', c10);
+              $("#c11").prop('checked', c11); $("#c12").prop('checked', c12); $("#c13").prop('checked', c13); $("#c14").prop('checked', c14); $("#c15").prop('checked', c15);
+              $("#c16").prop('checked', c16); $("#c17").prop('checked', c17); $("#c18").prop('checked', c18); $("#c19").prop('checked', c19); $("#c20").prop('checked', c20);
+              $("#c21").prop('checked', c21); $("#c22").prop('checked', c22); $("#c23").prop('checked', c23); $("#c24").prop('checked', c24); $("#c25").prop('checked', c25);
+              $("#c26").prop('checked', c26); $("#c27").prop('checked', c27); $("#c28").prop('checked', c28); $("#c29").prop('checked', c29); $("#c30").prop('checked', c30);
+              $("#c31").prop('checked', c31); $("#c32").prop('checked', c32); $("#c34").prop('checked', c34);
+
+            });
+
+          $("#c1").click(function(){ var c1 = this.checked ? 1 : 0; dbINPUTCtrl.update({1:c1}); });
+          $("#c2").click(function(){ var c2 = this.checked ? 1 : 0; dbINPUTCtrl.update({2:c2}); });
+          $("#c3").click(function(){ var c3 = this.checked ? 1 : 0; dbINPUTCtrl.update({3:c3}); });
+          $("#c4").click(function(){ var c4 = this.checked ? 1 : 0; dbINPUTCtrl.update({4:c4}); });
+          $("#c5").click(function(){ var c5 = this.checked ? 1 : 0; dbINPUTCtrl.update({5:c5}); });
+          $("#c6").click(function(){ var c6 = this.checked ? 1 : 0; dbINPUTCtrl.update({6:c6}); });
+          $("#c7").click(function(){ var c7 = this.checked ? 1 : 0; dbINPUTCtrl.update({7:c7}); });
+          $("#c8").click(function(){ var c8 = this.checked ? 1 : 0; dbINPUTCtrl.update({8:c8}); });
+          $("#c9").click(function(){ var c9 = this.checked ? 1 : 0; dbINPUTCtrl.update({9:c9}); });
+          $("#c10").click(function(){ var c10 = this.checked ? 1 : 0; dbINPUTCtrl.update({10:c10}); });
+          $("#c11").click(function(){ var c11 = this.checked ? 1 : 0; dbINPUTCtrl.update({11:c11}); });
+          $("#c12").click(function(){ var c12 = this.checked ? 1 : 0; dbINPUTCtrl.update({12:c12}); });
+          $("#c13").click(function(){ var c13 = this.checked ? 1 : 0; dbINPUTCtrl.update({13:c13}); });
+          $("#c14").click(function(){ var c14 = this.checked ? 1 : 0; dbINPUTCtrl.update({14:c14}); });
+          $("#c15").click(function(){ var c15 = this.checked ? 1 : 0; dbINPUTCtrl.update({15:c15}); });
+          $("#c16").click(function(){ var c16 = this.checked ? 1 : 0; dbINPUTCtrl.update({16:c16}); });
+          $("#c17").click(function(){ var c17 = this.checked ? 1 : 0; dbINPUTCtrl.update({17:c17}); });
+          $("#c18").click(function(){ var c18 = this.checked ? 1 : 0; dbINPUTCtrl.update({18:c18}); });
+          $("#c19").click(function(){ var c19 = this.checked ? 1 : 0; dbINPUTCtrl.update({19:c19}); });
+          $("#c20").click(function(){ var c20 = this.checked ? 1 : 0; dbINPUTCtrl.update({20:c20}); });
+          $("#c21").click(function(){ var c21 = this.checked ? 1 : 0; dbINPUTCtrl.update({21:c21}); });
+          $("#c22").click(function(){ var c22 = this.checked ? 1 : 0; dbINPUTCtrl.update({22:c22}); });
+          $("#c23").click(function(){ var c23 = this.checked ? 1 : 0; dbINPUTCtrl.update({23:c23}); });
+          $("#c24").click(function(){ var c24 = this.checked ? 1 : 0; dbINPUTCtrl.update({24:c24}); });
+          $("#c25").click(function(){ var c25 = this.checked ? 1 : 0; dbINPUTCtrl.update({25:c25}); });
+          $("#c26").click(function(){ var c26 = this.checked ? 1 : 0; dbINPUTCtrl.update({26:c26}); });
+          $("#c27").click(function(){ var c27 = this.checked ? 1 : 0; dbINPUTCtrl.update({27:c27}); });
+          $("#c28").click(function(){ var c28 = this.checked ? 1 : 0; dbINPUTCtrl.update({28:c28}); });
+          $("#c29").click(function(){ var c29 = this.checked ? 1 : 0; dbINPUTCtrl.update({29:c29}); });
+          $("#c30").click(function(){ var c30 = this.checked ? 1 : 0; dbINPUTCtrl.update({30:c30}); });
+          $("#c31").click(function(){ var c31 = this.checked ? 1 : 0; dbINPUTCtrl.update({31:c31}); });
+          $("#c32").click(function(){ var c32 = this.checked ? 1 : 0; dbINPUTCtrl.update({32:c32}); });
+          $("#c34").click(function(){ var c34 = this.checked ? 1 : 0; dbINPUTCtrl.update({34:c34}); });
+      /// /read radio 1-33 & 34 ///
+
+
+
+
+
+      /// Analog 0  ///
+            var dbanalog0 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                dbanalog0.on('value', function(data){
+                  var analog0 = data.child("0").val();
+                  // document.getElementById("analog0_off").textContent= analog0;
+                  if (analog0 == "000") $("#analog0_off").prop('checked', true); else $("#analog0_off").prop('checked', false);
+                  if (analog0 == "002") $("#analog0_slow").prop('checked', true); else $("#analog0_slow").prop('checked', false);
+                  if (analog0 == "010") $("#analog0_fast").prop('checked', true); else $("#analog0_fast").prop('checked', false);
+              });
+                  $("#analog0_off").click(function(){
+                    var update = "000";
+                    dbanalog0.update({0:update});});
+                  $("#analog0_slow").click(function(){
+                    var update = "002";
+                    dbanalog0.update({0:update});});
+                  $("#analog0_fast").click(function(){
+                    var update = "010";
+                    dbanalog0.update({0:update});});
+      /// /Analog 0  ///
+
+      /// Analog 1  ///
+            var dbanalog1 = firebase.database().ref('OUTPUTAnalog/Array/Data');
+                dbanalog1.on('value', function(data){
+                  var analog1 = data.child("1").val();
+                  if (analog1 == "000") $("#analog1_off").prop('checked', true); else $("#analog1_off").prop('checked', false);
+                  if (analog1 == "002") $("#analog1_slow").prop('checked', true); else $("#analog1_slow").prop('checked', false);
+                  if (analog1 == "010") $("#analog1_fast").prop('checked', true); else $("#analog1_fast").prop('checked', false);
+              });
+                  $("#analog1_off").click(function(){
+                    var update = "000";
+                    dbanalog1.update({1:update});});
+                  $("#analog1_slow").click(function(){
+                    var update = "002";
+                    dbanalog1.update({1:update});});
+                  $("#analog1_fast").click(function(){
+                    var update = "010";
+                    dbanalog1.update({1:update});});
+      /// /Analog 1  ///
+
+
+      /// read dbMessage ///
+            var dbMessage = firebase.database().ref('Message/Array/Data');
+                dbMessage.on('value', function(data){
+                 // console.log("data: ", data.val());
+                  var msg = data.child("0").val();
+                  if (msg=="ระบบ : ไม่ทำงาน") {
+                    document.getElementById("msg").textContent= msg;
+                    document.getElementById("msg").style.color = "red";
+                  }else if (msg=="ระบบ : ทำงาน") {
+                    document.getElementById("msg").textContent= msg;
+                    document.getElementById("msg").style.color = "#02FF11 ";
+                  }else {
+                    document.getElementById("msg").textContent= "ระบบ : ล้มเหลว";
+                    document.getElementById("msg").style.color = "#02F2FF ";
+                  }
+              });
+
+
+
+      /// read SensorIN 1-5 ///
+            var dbSensorIN = firebase.database().ref('SensorIN/Array/Data');
+                dbSensorIN.on('value', function(data){
+                 // console.log("data: ", data.val());
+                  var sen1 = data.child("1").val();
+                  var sen2 = data.child("2").val();
+                  var sen3 = data.child("3").val();
+                  var sen4 = data.child("4").val();
+                  var sen5 = data.child("5").val();
+                  document.getElementById("sen1").textContent= sen1;
+                  document.getElementById("sen2").textContent= sen2;
+                  document.getElementById("sen3").textContent= sen3;
+                  document.getElementById("sen4").textContent= sen4;
+                  document.getElementById("sen5").textContent= sen5;
+              });
+
+              // Menu silde
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "200px";
+              }
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+              }
+
+
+
+
+              ///clolor settings ////
+              var dbcolor = firebase.database().ref('colorSetting');
+                  dbcolor.on('value', function(data){
+                   console.log("data: ", data.val());
+                         // $("#readtext01").val(data.val().led0);
+                       document.getElementById("textSubject1").textContent=data.val().textSub1;
+                       document.getElementById("colorBody1").style.background = data.val().colorBody1;
+                       document.getElementById("colorSubject1").style.background = data.val().colorSub1;
+
+                       document.getElementById("textSubject2").textContent=data.val().textSub2;
+                       document.getElementById("colorBody2").style.background = data.val().colorBody2;
+                       document.getElementById("colorSubject2").style.background = data.val().colorSub2;
+
+                       document.getElementById("textSubject3").textContent=data.val().textSub3;
+                       document.getElementById("colorBody3").style.background = data.val().colorBody3;
+                       document.getElementById("colorSubject3").style.background = data.val().colorSub3;
+
+                       document.getElementById("textSubject4").textContent=data.val().textSub4;
+                       document.getElementById("colorBody4").style.background = data.val().colorBody4;
+                       document.getElementById("colorSubject4").style.background = data.val().colorSub4;
+
+                       document.getElementById("textSubject5").textContent=data.val().textSub5;
+                       document.getElementById("colorBody5").style.background = data.val().colorBody5;
+                       document.getElementById("colorSubject5").style.background = data.val().colorSub5;
+
+                       document.getElementById("textSubject6").textContent=data.val().textSub6;
+                       document.getElementById("colorBody6").style.background = data.val().colorBody6;
+                       document.getElementById("colorSubject6").style.background = data.val().colorSub6;
+
+                       document.getElementById("textSubject7").textContent=data.val().textSub7;
+                       document.getElementById("colorBody7").style.background = data.val().colorBody7;
+                       document.getElementById("colorSubject7").style.background = data.val().colorSub7;
+
+                       document.getElementById("textSubject8").textContent=data.val().textSub8;
+                       document.getElementById("colorBody8").style.background = data.val().colorBody8;
+                       document.getElementById("colorSubject8").style.background = data.val().colorSub8;
+
+                       document.getElementById("textSubject9").textContent=data.val().textSub9;
+                       document.getElementById("colorBody9").style.background = data.val().colorBody9;
+                       document.getElementById("colorSubject9").style.background = data.val().colorSub9;
+                });
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
