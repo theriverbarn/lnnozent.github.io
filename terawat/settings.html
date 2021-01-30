@@ -29,8 +29,8 @@
     <table width="100%" >
       <tr>
         <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
-        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
-        <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
+        <th align="left" width="30%"><input id="textSubject0" type="text" style="font-size: 16px;width:150px;text-align:right;"></th>
+        <th align="right" width="50%"><button class="button" onclick="addtextcolor()">ตกลง</button></th>
       </tr>
     </table>
 
@@ -1005,6 +1005,7 @@
                       var db = firebase.database().ref('colorSetting');
                           db.on('value', function(data){
                            console.log("data: ", data.val());
+                               $("#textSubject0").val(data.val().textSub0);
                                $("#textSubject1").val(data.val().textSub1); $("#inputColorBody1").val(data.val().colorBody1); $("#inputColorSubject1").val(data.val().colorSub1);
                                document.getElementById("colorBody1").style.background = data.val().colorBody1; document.getElementById("colorSubject1").style.background = data.val().colorSub1;
 
@@ -1129,6 +1130,7 @@
 
                   /// add text & color ///
                         function addtextcolor() {
+                          var textSubject0 = $("#textSubject0").val();
                           var textSubject1 = $("#textSubject1").val(); var inputColorBody1 = $("#inputColorBody1").val(); var inputColorSubject1 = $("#inputColorSubject1").val();
                           var textSubject2 = $("#textSubject2").val(); var inputColorBody2 = $("#inputColorBody2").val(); var inputColorSubject2 = $("#inputColorSubject2").val();
                           var textSubject3 = $("#textSubject3").val(); var inputColorBody3 = $("#inputColorBody3").val(); var inputColorSubject3 = $("#inputColorSubject3").val();
@@ -1170,6 +1172,7 @@
                           var textSubject40 = $("#textSubject40").val(); var inputColorBody40 = $("#inputColorBody40").val(); var inputColorSubject40 = $("#inputColorSubject40").val();
                           var textSubject41 = $("#textSubject41").val(); var inputColorBody41 = $("#inputColorBody41").val(); var inputColorSubject41 = $("#inputColorSubject41").val();
                             db.update({
+                              textSub0:textSubject0,
                               textSub1:textSubject1, colorBody1:inputColorBody1, colorSub1:inputColorSubject1,
                               textSub2:textSubject2, colorBody2:inputColorBody2, colorSub2:inputColorSubject2,
                               textSub3:textSubject3, colorBody3:inputColorBody3, colorSub3:inputColorSubject3,
