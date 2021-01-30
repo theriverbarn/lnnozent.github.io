@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet"  href="css/font-awesome.css">
     <script src="js/app.js"></script>
   </head>
   <script>
@@ -30,7 +29,7 @@
     <table width="100%" >
       <tr>
         <th align="left" width="10%"><span style="font-size:40px;cursor:pointer;color:#ccc" onclick="openNav()">&#9776; </span></th>
-        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()">IOT-FARM</span></th>
+        <th align="left" width="30%"><span style="font-size:20px;cursor:pointer;color:#ccc;" onclick="openNav()" id="textSubject0"></span></th>
         <th align="right" width="50%"><span id="msg" style="font-size:15px;cursor:pointer;color:#ccc;"></span></th>
       </tr>
     </table>
@@ -299,6 +298,7 @@
       var dbcolor = firebase.database().ref('colorSetting');
           dbcolor.on('value', function(data){
            // console.log("data: ", data.val());
+           document.getElementById("textSubject0").textContent=data.val().textSub0;
            document.getElementById("textSubject1").textContent=data.val().textSub1;document.getElementById("colorBody1").style.background = data.val().colorBody1;document.getElementById("colorSubject1").style.background = data.val().colorSub1;
            document.getElementById("textSubject2").textContent=data.val().textSub2;document.getElementById("colorBody2").style.background = data.val().colorBody2;document.getElementById("colorSubject2").style.background = data.val().colorSub2;
            document.getElementById("textSubject3").textContent=data.val().textSub3;document.getElementById("colorBody3").style.background = data.val().colorBody3;document.getElementById("colorSubject3").style.background = data.val().colorSub3;
@@ -413,6 +413,15 @@
               function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
               }
+
+
+              // /// read dbselectDisable ///
+              //       var dbselectDisable = firebase.database().ref('selectDisable');
+              //           dbselectDisable.on('value', function(data){
+              //            // console.log("data: ", data.val());
+              //         document.getElementById("colorBody1").style.display = data.val().box1;
+              //         document.getElementById("colorBody2").style.display = data.val().box2;
+              //         });
 
 
               var moveTop = $('#moveTop');
