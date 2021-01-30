@@ -44,7 +44,7 @@ background-color: #555;
 }
 #moveTop::after {
   content: "\f077";
-  font-family: FontAwesome;
+  font-family: "FontAwesome";
   font-weight: normal;
   font-style: normal;
   font-size: 2em;
