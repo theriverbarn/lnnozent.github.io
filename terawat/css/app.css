@@ -49,11 +49,11 @@ background-color: #555;
   font-style: normal;
   font-size: 2em;
   line-height: 50px;
-  color: #fff;
+  /* color: #fff; */
 }
 #moveTop:hover {
   cursor: pointer;
-  background-color: #333;
+  /* background-color: #333; */
 }
 #moveTop:active {
   background-color: #555;
