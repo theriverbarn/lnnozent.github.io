@@ -932,7 +932,6 @@
              $("#ReftemSetcri0").val(Setcri0); $("#ReftemSetcri1").val(Setcri1); $("#ReftemSetcri2").val(Setcri2);
              $("#ReftemSetcri3").val(Setcri3); $("#ReftemSetcri4").val(Setcri4);
           });
-
           /// addSetin ///
                 function addSetin() {
                   var ReftemSetin0 = parseInt($("#ReftemSetin0").val());
@@ -969,7 +968,6 @@
                     // }else {
                     // }
                   }
-
                   /// read checkebox firebase  ///
                       var db = firebase.database().ref('colorSetting');
                           db.on('value', function(data){
@@ -1188,8 +1186,6 @@
                             // }else {
                             // }
                           }
-
-
       // Menu silde
       function openNav() {
         document.getElementById("mySidenav").style.width = "200px";
@@ -1197,8 +1193,6 @@
       function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
       }
-
-
       var moveTop = $('#moveTop');
       $(window).scroll(function() {
       if ($(window).scrollTop() > 300) {
@@ -1211,9 +1205,6 @@
       e.preventDefault();
       $('html, body').animate({scrollTop:0}, '300');
       });
-
-
-
       /// read radio 1-33 & 34 ///
           var dbhiddenShow = firebase.database().ref('hiddenShow');
               dbhiddenShow.on('value', function(data){
