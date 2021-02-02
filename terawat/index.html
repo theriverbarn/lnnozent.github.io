@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-   
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -17,7 +17,8 @@
     firebase.initializeApp(config);
   </script>
   <body >
-    <a id="moveTop" ></a>
+    <a id="moveTop" class="show"></i></a>
+
     <div id="mySidenav" class="sidenav">
       <a href="#"><img src="images/logo.png" width="80%" height="80%" style="border-radius: 30px;"> </a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
@@ -416,13 +417,44 @@
               }
 
 
-              // /// read dbselectDisable ///
-              //       var dbselectDisable = firebase.database().ref('selectDisable');
-              //           dbselectDisable.on('value', function(data){
-              //            // console.log("data: ", data.val());
-              //         document.getElementById("colorBody1").style.display = data.val().box1;
-              //         document.getElementById("colorBody2").style.display = data.val().box2;
-              //         });
+              /// read dbhiddenShow ///
+                    var dbhiddenShow = firebase.database().ref('hiddenShow');
+                        dbhiddenShow.on('value', function(data){
+
+                         if (data.val().h1 == 1) { document.getElementById("colorBody1").style.display = "inline"; }else { document.getElementById("colorBody1").style.display = "none"; }
+                         if (data.val().h2 == 1) { document.getElementById("colorBody2").style.display = "inline"; }else { document.getElementById("colorBody2").style.display = "none"; }
+                         if (data.val().h3 == 1) { document.getElementById("colorBody3").style.display = "inline"; }else { document.getElementById("colorBody3").style.display = "none"; }
+                         if (data.val().h4 == 1) { document.getElementById("colorBody4").style.display = "inline"; }else { document.getElementById("colorBody4").style.display = "none"; }
+                         if (data.val().h5 == 1) { document.getElementById("colorBody5").style.display = "inline"; }else { document.getElementById("colorBody5").style.display = "none"; }
+                         if (data.val().h6 == 1) { document.getElementById("colorBody6").style.display = "inline"; }else { document.getElementById("colorBody6").style.display = "none"; }
+                         if (data.val().h7 == 1) { document.getElementById("colorBody7").style.display = "inline"; }else { document.getElementById("colorBody7").style.display = "none"; }
+                         if (data.val().h8 == 1) { document.getElementById("colorBody8").style.display = "inline"; }else { document.getElementById("colorBody8").style.display = "none"; }
+                         if (data.val().h9 == 1) { document.getElementById("colorBody9").style.display = "inline"; }else { document.getElementById("colorBody9").style.display = "none"; }
+                         if (data.val().h10 == 1) { document.getElementById("colorBody10").style.display = "inline"; }else { document.getElementById("colorBody10").style.display = "none"; }
+                         if (data.val().h11 == 1) { document.getElementById("colorBody11").style.display = "inline"; }else { document.getElementById("colorBody11").style.display = "none"; }
+                         if (data.val().h12 == 1) { document.getElementById("colorBody12").style.display = "inline"; }else { document.getElementById("colorBody12").style.display = "none"; }
+                         if (data.val().h13 == 1) { document.getElementById("colorBody13").style.display = "inline"; }else { document.getElementById("colorBody13").style.display = "none"; }
+                         if (data.val().h14 == 1) { document.getElementById("colorBody14").style.display = "inline"; }else { document.getElementById("colorBody14").style.display = "none"; }
+                         if (data.val().h15 == 1) { document.getElementById("colorBody15").style.display = "inline"; }else { document.getElementById("colorBody15").style.display = "none"; }
+                         if (data.val().h16 == 1) { document.getElementById("colorBody16").style.display = "inline"; }else { document.getElementById("colorBody16").style.display = "none"; }
+                         if (data.val().h17 == 1) { document.getElementById("colorBody17").style.display = "inline"; }else { document.getElementById("colorBody17").style.display = "none"; }
+                         if (data.val().h18 == 1) { document.getElementById("colorBody18").style.display = "inline"; }else { document.getElementById("colorBody18").style.display = "none"; }
+                         if (data.val().h19 == 1) { document.getElementById("colorBody19").style.display = "inline"; }else { document.getElementById("colorBody19").style.display = "none"; }
+                         if (data.val().h20 == 1) { document.getElementById("colorBody20").style.display = "inline"; }else { document.getElementById("colorBody20").style.display = "none"; }
+                         if (data.val().h21 == 1) { document.getElementById("colorBody21").style.display = "inline"; }else { document.getElementById("colorBody21").style.display = "none"; }
+                         if (data.val().h22 == 1) { document.getElementById("colorBody22").style.display = "inline"; }else { document.getElementById("colorBody22").style.display = "none"; }
+                         if (data.val().h23 == 1) { document.getElementById("colorBody23").style.display = "inline"; }else { document.getElementById("colorBody23").style.display = "none"; }
+                         if (data.val().h24 == 1) { document.getElementById("colorBody24").style.display = "inline"; }else { document.getElementById("colorBody24").style.display = "none"; }
+                         if (data.val().h25 == 1) { document.getElementById("colorBody25").style.display = "inline"; }else { document.getElementById("colorBody25").style.display = "none"; }
+                         if (data.val().h26 == 1) { document.getElementById("colorBody26").style.display = "inline"; }else { document.getElementById("colorBody26").style.display = "none"; }
+                         if (data.val().h27 == 1) { document.getElementById("colorBody27").style.display = "inline"; }else { document.getElementById("colorBody27").style.display = "none"; }
+                         if (data.val().h28 == 1) { document.getElementById("colorBody28").style.display = "inline"; }else { document.getElementById("colorBody28").style.display = "none"; }
+                         if (data.val().h29 == 1) { document.getElementById("colorBody29").style.display = "inline"; }else { document.getElementById("colorBody29").style.display = "none"; }
+                         if (data.val().h30 == 1) { document.getElementById("colorBody30").style.display = "inline"; }else { document.getElementById("colorBody30").style.display = "none"; }
+                         if (data.val().h31 == 1) { document.getElementById("colorBody31").style.display = "inline"; }else { document.getElementById("colorBody31").style.display = "none"; }
+                         if (data.val().h32 == 1) { document.getElementById("colorBody32").style.display = "inline"; }else { document.getElementById("colorBody32").style.display = "none"; }
+
+                      });
 
 
               var moveTop = $('#moveTop');
