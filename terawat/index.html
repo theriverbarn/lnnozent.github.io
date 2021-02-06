@@ -26,7 +26,7 @@
       <a href="./settings.html">Settings</a>
       <a href="./autonomous.html">Autonomous</a>
       <a href="./maintenance.html">Maintenance</a>
-      <a href="./abount.html">Abount</a>
+      <a href="./about.html">About</a>
     </div>
     <table width="100%" >
       <tr>
@@ -301,6 +301,7 @@
           dbcolor.on('value', function(data){
            // console.log("data: ", data.val());
            document.getElementById("textSubject0").textContent=data.val().textSub0;
+           document.body.style.background = data.val().colorBody0;
            document.getElementById("textSubject1").textContent=data.val().textSub1;document.getElementById("colorBody1").style.background = data.val().colorBody1;document.getElementById("colorSubject1").style.background = data.val().colorSub1;
            document.getElementById("textSubject2").textContent=data.val().textSub2;document.getElementById("colorBody2").style.background = data.val().colorBody2;document.getElementById("colorSubject2").style.background = data.val().colorSub2;
            document.getElementById("textSubject3").textContent=data.val().textSub3;document.getElementById("colorBody3").style.background = data.val().colorBody3;document.getElementById("colorSubject3").style.background = data.val().colorSub3;
